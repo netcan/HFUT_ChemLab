@@ -1,1 +1,3 @@
 A Laravel application for HFUT Chemistry lab learning and exam system 
+
+Be Developing...

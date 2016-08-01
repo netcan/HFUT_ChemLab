@@ -5,3 +5,4 @@ Homestead.yaml
 Homestead.json
 /.idea
 .env
+_ide_*.php
