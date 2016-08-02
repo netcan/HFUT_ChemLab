@@ -41,6 +41,7 @@
                             </tbody>
                         </table>
 
+
                         <div class="text-center">
                             @if($data['allpage']>1)
                                 <nav>
