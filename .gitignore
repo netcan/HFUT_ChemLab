@@ -3,6 +3,7 @@
 /public/storage
 Homestead.yaml
 Homestead.json
+.phpstorm.meta.php
 /.idea
 .env
 _ide_*.php
