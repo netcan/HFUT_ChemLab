@@ -48,4 +48,13 @@ class User extends Authenticatable
         'teacher' => 1,
         'student' => 2
     ];
+    public  function isAdmin() {
+        return $this->type === User::$type['admin'];
+    }
+    public function isTeacher() {
+        return $this->type === User::$type['teacher'];
+    }
+    public function isStudent() {
+        return $this->type === User::$type['student'];
+    }
 }

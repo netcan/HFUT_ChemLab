@@ -62,13 +62,13 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                @if(Auth::user()->type != \App\User::$type['student'])
+                                @if(!Auth::user()->isStudent())
                                     <li><a><i class="fa fa-btn fa-pencil"></i>题库管理</a></li>
                                     <li><a><i class="fa fa-btn fa-newspaper-o"></i>试卷管理</a></li>
                                     <li><a><i class="fa fa-btn fa-percent"></i>成绩管理</a></li>
-                                    @if(Auth::user()->type != \App\User::$type['teacher'])
+                                    @can('manageUser')
                                         <li><a><i class="fa fa-btn fa-users"></i>用户管理</a></li>
-                                    @endif
+                                    @endcan
                                     <li><a><i class="fa fa-btn fa-book"></i>资料库管理</a></li>
                                 @endif
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
