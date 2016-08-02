@@ -62,15 +62,15 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                @if(!Auth::user()->isStudent())
+                                @can('manage')
                                     <li><a><i class="fa fa-btn fa-pencil"></i>题库管理</a></li>
                                     <li><a><i class="fa fa-btn fa-newspaper-o"></i>试卷管理</a></li>
                                     <li><a><i class="fa fa-btn fa-percent"></i>成绩管理</a></li>
                                     @can('manageUser')
                                         <li><a><i class="fa fa-btn fa-users"></i>用户管理</a></li>
                                     @endcan
-                                    <li><a><i class="fa fa-btn fa-book"></i>资料库管理</a></li>
-                                @endif
+                                    <li><a href="{{ url('/admin/resources') }}"><i class="fa fa-btn fa-book"></i>资料库管理</a></li>
+                                @endcan
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
@@ -85,6 +85,7 @@
     <!-- JavaScripts -->
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/js/chemlab.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>

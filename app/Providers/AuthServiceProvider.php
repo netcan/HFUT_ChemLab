@@ -25,6 +25,9 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(GateContract $gate)
     {
         $this->registerPolicies($gate);
+        $gate->define('manage', function($user) {
+            return $user->isAdmin() || $user->isTeacher();
+        });
         $gate->define('manageUser', function($user) {
             return $user->isAdmin();
         });

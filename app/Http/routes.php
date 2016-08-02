@@ -17,4 +17,14 @@ Route::get('/', function () {
 
 Route::auth();
 
+Route::group(['middleware'=>['auth', 'manage'], 'namespace'=>'Admin', 'prefix'=>'admin'], function () {
+    Route::group(['prefix'=>'resources'], function () {
+        Route::get('/', function() {
+            return view('admin.resources');
+        });
+        Route::resource('categories', 'CategoryController');
+
+    });
+});
+
 Route::get('/home', 'HomeController@index');
