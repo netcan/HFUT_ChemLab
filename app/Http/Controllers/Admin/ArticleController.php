@@ -16,7 +16,7 @@ class ArticleController extends Controller
             'nowpage'=>$page,
             'allpage'=>ceil(Article::all()->count() / 10),
         ];
-        if($page > $data['nowpage']) abort(404);
+        if($page > $data['allpage']) abort(404);
         return view('admin.articles.index')->with('data', $data);
     }
 }
