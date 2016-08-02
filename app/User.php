@@ -57,4 +57,7 @@ class User extends Authenticatable
     public function isStudent() {
         return $this->type === User::$type['student'];
     }
+    public function articles() {
+        return $this->hasMany('App\Article', 'cid', 'id');
+    }
 }

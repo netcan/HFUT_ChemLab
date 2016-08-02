@@ -23,6 +23,10 @@ Route::group(['middleware'=>['auth', 'manage'], 'namespace'=>'Admin', 'prefix'=>
             return view('admin.resources');
         });
         Route::resource('categories', 'CategoryController');
+        Route::get('articles', function () {
+            return redirect(url('admin/resources/articles/page/1'));
+        });
+        Route::get('articles/page/{page?}', 'ArticleController@index');
 
     });
 });
