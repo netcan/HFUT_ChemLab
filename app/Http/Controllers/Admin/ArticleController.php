@@ -7,16 +7,20 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Gate;
 
 class ArticleController extends Controller
 {
-    public function index($page=1) {
-        $data = [
-            'articles'=>Article::with('user', 'category')->orderBy('created_at', 'desc')->skip(($page-1)*10)->take(10)->get(),
-            'nowpage'=>$page,
-            'allpage'=>ceil(Article::all()->count() / 10),
-        ];
-        if($page > $data['allpage']) abort(404);
-        return view('admin.articles.index')->with('data', $data);
+    public function index() {
+        return view('admin.articles.index')->with('articles',Article::with('user', 'category')->orderBy('created_at', 'desc')->paginate(10));
+    }
+    public function destroy($id) {
+        $article = Article::find($id);
+        if(Gate::denies('deleteArticle', $article))
+            return redirect()->back()->withErrors('你不是管理员或者作者！');
+        else {
+            $article->delete();
+            return redirect()->back();
+        }
     }
 }

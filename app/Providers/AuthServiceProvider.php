@@ -31,6 +31,9 @@ class AuthServiceProvider extends ServiceProvider
         $gate->define('manageUser', function($user) {
             return $user->isAdmin();
         });
+        $gate->define('deleteArticle', function($user, $post) {
+            return ($user->id === $post->uid) || $user->isAdmin();
+        });
         //
     }
 }

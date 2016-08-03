@@ -21,7 +21,9 @@
                             {{ method_field('PUT') }}
                             <input type="text" name="name" class="form-control" required="required" placeholder="请输入分类名" value="{{ $category->name }}">
                             <br>
-                            <button class="btn btn-lg btn-info">编辑分类</button>
+                            <div class="text-right">
+                                <button class="btn btn-lg btn-info">编辑分类</button>
+                            </div>
                         </form>
                     </div>
                 </div>
