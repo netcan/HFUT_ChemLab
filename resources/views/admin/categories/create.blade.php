@@ -20,7 +20,9 @@
                             {!! csrf_field() !!}
                             <input type="text" name="name" class="form-control" required="required" placeholder="请输入分类名" value="{{ old('name') }}">
                             <br>
-                            <button class="btn btn-lg btn-info">添加分类</button>
+                            <div class="text-right">
+                                <button class="btn btn-lg btn-info">添加分类</button>
+                            </div>
                         </form>
                     </div>
                 </div>

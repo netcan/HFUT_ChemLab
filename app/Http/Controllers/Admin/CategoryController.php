@@ -12,12 +12,16 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return view('admin.categories.index')->with('categories', Category::all());
+        return view('admin.categories.index')->with('categories', Category::withCount('article')->get());
     }
 
     public function destroy($id)
     {
-        Category::find($id)->delete();
+        $category = Category::find($id);
+        if($category->article->count() != 0)
+            abort(403);
+        else
+            $category->delete();
         return redirect()->back();
     }
 

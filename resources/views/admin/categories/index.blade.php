@@ -21,14 +21,18 @@
                             <tbody>
                             @foreach($categories as $category)
                                 <tr>
-                                    <td>{{ $category->name }}</td>
+                                    <td><a class="btn btn-primary" href="{{ url('/admin/resources/articles/?cid='.$category->id) }}">{{ $category->name }} <span class="badge">{{ $category->article_count }}</span></a></td>
                                     <td><a class="btn btn-info" href="categories/{{ $category->id }}/edit">编辑</a></td>
                                     <td>
-                                        <form class="delete" action="categories/{{ $category->id }}" method="POST" style="display: inline;">
-                                            {{ method_field('DELETE') }}
-                                            {{ csrf_field() }}
-                                            <input type="submit" class="btn btn-danger" value="删除"/>
-                                        </form>
+                                        @if($category->article_count == 0)
+                                            <form class="delete" action="categories/{{ $category->id }}" method="POST" style="display: inline;">
+                                                {{ method_field('DELETE') }}
+                                                {{ csrf_field() }}
+                                                <input type="submit" class="btn btn-danger" value="删除"/>
+                                            </form>
+                                        @else
+                                            <button disabled class="btn">删除</button>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

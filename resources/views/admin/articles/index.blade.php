@@ -11,11 +11,16 @@
                     <div class="panel-body">
                         @if (count($errors) > 0)
                             <div class="alert alert-danger">
-                                <strong>删除失败：</strong> <br><br>
+                                <strong>操作失败：</strong> <br><br>
                                 {!! implode('<br>', $errors->all()) !!}
                             </div>
                         @endif
-                        <a href="categories/create" class="btn btn-block btn-success btn-lg">添加文章</a>
+                        <a href="{{ url('article/create') }}" class="btn btn-block btn-success btn-lg">添加文章</a>
+                            <br>
+                            <a href="?filter=all" class="btn btn-info">显示全部 <span class="badge">{{ $articles_count }}</span></a>
+                            <a href="?filter" class="btn btn-info">显示我的 <span class="badge">{{ $myArticles_count }}</span></a>
+                            <a href="{{ url('admin/resources/categories') }}" class="btn btn-info">分类管理 <span class="badge"> {{ $categories_count }} </span></a>
+
                         <table class="table table-striped">
                             <thead>
                             <tr>
@@ -34,7 +39,8 @@
                                     <td class="text-center">{{ $article->user->name }}</td>
                                     <td class="text-center">{{ $article->category->name }}</td>
                                     <td class="text-center">{{ $article->created_at }}</td>
-                                    <td class="text-center"><a class="btn btn-info" href="{{ url('/article/'.$article->id.'/edit') }}">编辑</a></td>
+                                    @can('opArticle', $article)
+                                    <td class="text-center"><a class="btn btn-primary" href="{{ url('/article/'.$article->id.'/edit') }}">编辑</a></td>
                                     <td class="text-center">
                                         <form class="delete" action="{{ url('/article/'.$article->id) }}" method="POST" style="display: inline;">
                                             {{ method_field('DELETE') }}
@@ -42,12 +48,19 @@
                                             <input type="submit" class="btn btn-danger" value="删除"/>
                                         </form>
                                     </td>
+                                    @else
+                                        <td class="text-center"><button class="btn"  disabled="disabled">编辑</button></td>
+                                        <td class="text-center"><button class="btn"  disabled="disabled">删除</button></td>
+                                    @endcan
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
                         <div class="text-right">
-                            {{ $articles->links() }}
+                            {{ $articles->appends([
+                                'filter'=> Request::get('filter'),
+                                'cid' => Request::get('cid')
+                            ])->links() }}
                         </div>
 
 

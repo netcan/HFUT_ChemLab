@@ -20,7 +20,7 @@ Route::auth();
 Route::group(['middleware'=>['auth', 'manage'], 'namespace'=>'Admin', 'prefix'=>'admin'], function () {
     Route::group(['prefix'=>'resources'], function () {
         Route::get('/', function() {
-            return view('admin.resources');
+            return view('admin.resources')->with('categories_count', \App\Category::all()->count())->with('articles_count', \App\Article::all()->count());
         });
         Route::resource('categories', 'CategoryController');
         Route::get('articles', 'ArticleController@index');
@@ -29,7 +29,7 @@ Route::group(['middleware'=>['auth', 'manage'], 'namespace'=>'Admin', 'prefix'=>
 });
 
 Route::resource('article', Admin\ArticleController::class, ['except' => [
-    'index',
+    'index','show'
 ]]);
 
 Route::get('/home', 'HomeController@index');

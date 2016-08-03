@@ -12,6 +12,7 @@
 
     <!-- Styles -->
    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/chemlab.css" rel="stylesheet">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
@@ -85,6 +86,7 @@
     <!-- JavaScripts -->
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/js/tinymce/tinymce.min.js"></script>
     <script src="/js/chemlab.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
