@@ -19,7 +19,7 @@ class ArticleController extends Controller
     }
 
     public function index(Request $request) {
-        if(Auth::user()->isAdmin() || $request->get('filter') == 'all')
+        if($request->get('filter') == 'all')
             $v = view('admin.articles.index')->with('articles',Article::with('user', 'category')->orderBy('created_at', 'desc')->paginate(10));
         else if($request->get('cid') != NULL)
             $v = view('admin.articles.index')->with('articles',Article::where('cid', '=', $request->get('cid'))->with('user', 'category')->orderBy('created_at', 'desc')->paginate(10));
