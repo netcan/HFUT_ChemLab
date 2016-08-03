@@ -85,4 +85,10 @@ class ArticleController extends Controller
         else
             return redirect()->back()->withInput()->withErrors('新建失败！');
     }
+    public function show($id) {
+        $article = Article::with('user', 'category')->get()->find($id);
+        if(!$article) abort(404);
+        return view('admin.articles.show')->with('article', $article);
+    }
+
 }
