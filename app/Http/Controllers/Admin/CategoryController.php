@@ -12,14 +12,16 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return view('admin.categories.index')->with('categories', Category::withCount('article')->get());
+        return view('admin.categories.index')->with('categories', Category::withCount('articles')->get());
     }
 
     public function destroy($id)
     {
         $category = Category::find($id);
-        if($category->article->count() != 0)
+        if($category->articles->count() != 0)
             abort(403);
+        else if(in_array($category->name, Category::$base))
+            return redirect()->back()->withErrors('系统分类，无法删除！');
         else
             $category->delete();
         return redirect()->back();

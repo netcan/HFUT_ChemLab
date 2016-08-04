@@ -15,26 +15,7 @@
             <div class="panel panel-info">
                 <div class="panel-heading"><i class="fa fa-info"></i> 系统提示</div>
                 <div class="panel-body">
-                    <ul>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>1</li>
-                        <li>2</li>
-                    </ul>
+                    {!! $systeminfo->content !!}
                 </div>
             </div>
         </div>
@@ -45,9 +26,19 @@
                 <div class="panel panel-danger">
                     <div class="panel-heading"><i class="icon-info-sign"></i> 最新公告</div>
                     <div class="panel-body">
-                        <ul>
-                            <li>1</li>
-                            <li>2</li>
+                        <ul class="list-unstyled">
+                            @foreach($notices as $notice)
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <a href="{{ url('article/'.$notice->id) }}"><i class="fa fa-bullhorn"></i> {{ str_limit($notice->title,25) }} </a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            {{ $notice->created_at->format('Y-m-d') }}
+                                        </div>
+                                    </div>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

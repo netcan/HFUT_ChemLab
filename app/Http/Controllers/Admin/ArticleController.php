@@ -30,7 +30,7 @@ class ArticleController extends Controller
     }
     public function destroy($id) {
         $article = Article::find($id);
-        if(Gate::denies('deleteArticle', $article))
+        if(Gate::denies('opArticle', $article))
             abort(403);
         else {
             $article->delete(); return redirect()->back();

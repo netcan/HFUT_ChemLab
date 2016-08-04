@@ -10,10 +10,10 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+use App\Category;
+use App\Article;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
 Route::auth();
 
