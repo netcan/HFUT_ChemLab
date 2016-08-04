@@ -6,7 +6,7 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        {{ $article->category->name }} > {{ $article->title }}
+                       <a href="{{ url('categories/'.$article->cid) }}">{{ $article->category->name }}</a> > {{ $article->title }}
                     </div>
                     <div class="panel-body">
                         <h1 class="article-heading">{{ $article->title }}</h1>

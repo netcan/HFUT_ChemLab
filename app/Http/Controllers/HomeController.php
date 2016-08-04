@@ -16,8 +16,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $systemInfoId = Category::where('name', Category::$base[0])->value('id');
-        $noticeId = Category::where('name', Category::$base[1])->value('id');
-        return view('index')->with('systeminfo', Article::where('cid', $systemInfoId)->orderBy('created_at', 'desc')->first())->with('notices', Article::where('cid', $noticeId)->orderBy('created_at', 'desc')->take(8)->get());
+        $i = 0;
+        foreach(Category::$base as $base) {
+            $baseId [] = Category::where('name', Category::$base[$i])->value('id');
+            ++$i;
+        }
+        $data = [
+            'baseId' => $baseId,
+            'baseInfo' => Category::withCount('articles')->get(),
+            'articles_count' => Article::count(),
+            'systeminfo' => Article::where('cid', $baseId[0])->orderBy('created_at', 'desc')->first(),
+            'notices' => Article::where('cid', $baseId[1])->orderBy('created_at', 'desc')->take(8)->get(),
+        ];
+
+        return view('index')->with('data', $data);
     }
 }

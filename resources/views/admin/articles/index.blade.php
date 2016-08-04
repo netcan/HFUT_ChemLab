@@ -35,7 +35,7 @@
                             <tbody>
                             @foreach($articles as $article)
                                 <tr>
-                                    <td class="text-center"><a href="{{ url('/article/'.$article->id) }}">{{ $article->title }}</a></td>
+                                    <td class="text-center"><a href="{{ url('/article/'.$article->id) }}">{{ str_limit($article->title, 50) }}</a></td>
                                     <td class="text-center">{{ $article->user->name }}</td>
                                     <td class="text-center"><a href="?cid={{ $article->cid }}">{{ $article->category->name }}</a></td>
                                     <td class="text-center">{{ $article->created_at }}</td>

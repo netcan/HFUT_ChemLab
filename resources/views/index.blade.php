@@ -6,7 +6,7 @@
         {{--  Learn/Test --}}
         <div class="col-md-3">
             <div class="row">
-                <p><button type="button" class="btn btn-primary btn-lg btn-block">在线学习</button> </p>
+                <p><a href="{{ url('categories') }}" class="btn btn-primary btn-lg btn-block">在线学习 <span class="badge">{{ $data['articles_count'] }}</span></a></p>
                 <p><button type="button" class="btn btn-primary btn-lg btn-block">在线考试</button> </p>
             </div>
         </div>
@@ -15,7 +15,7 @@
             <div class="panel panel-info">
                 <div class="panel-heading"><i class="fa fa-info"></i> 系统提示</div>
                 <div class="panel-body">
-                    {!! $systeminfo->content !!}
+                    {!! $data['systeminfo']->content !!}
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
                     <div class="panel-heading"><i class="icon-info-sign"></i> 最新公告</div>
                     <div class="panel-body">
                         <ul class="list-unstyled">
-                            @foreach($notices as $notice)
+                            @foreach($data['notices'] as $notice)
                                 <li>
                                     <div class="row">
                                         <div class="col-md-8">
@@ -45,24 +45,19 @@
             </div>
             {{-- info --}}
             <div class="row">
-                <div class="row">
-                    <div class="col-md-6">
-                        <button type="button" class="btn btn-info btn-lg btn-block">规章制度</button>
+                @for($i=0; $i < 2; ++$i)
+                    <div class="row">
+                        @for($j=0; $j < 2; ++$j)
+                            <div class="col-md-6">
+                               <span class="hidden">{{ $p = $i*2 + $j + 2 }}</span>
+                                <a href="{{ url('categories/'.$data['baseId'][$p]) }}" class="btn btn-info btn-lg btn-block">{{  $data['baseInfo'][$p]->name }} <span class="badge">{{ $data['baseInfo'][$p]->articles_count }}</span></a>
+                            </div>
+                        @endfor
                     </div>
-                    <div class="col-md-6">
-                        <button type="button" class="btn btn-info btn-lg btn-block">事故案例</button>
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-md-6">
-                        <button type="button" class="btn btn-info btn-lg btn-block">安全标识</button>
-                    </div>
-                    <div class="col-md-6">
-                        <button type="button" class="btn btn-info btn-lg btn-block">安全讲座</button>
-                    </div>
-                </div>
+                    <br>
+                @endfor
             </div>
+
         </div>
 
     </div>

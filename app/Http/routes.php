@@ -30,6 +30,7 @@ Route::group(['middleware'=>['auth', 'manage'], 'namespace'=>'Admin', 'prefix'=>
 Route::resource('article', Admin\ArticleController::class, ['except' => [
     'index',
 ]]);
+Route::get('categories/{cid?}', 'Admin\CategoryController@list');
 
 
 Route::get('/home', 'HomeController@index');

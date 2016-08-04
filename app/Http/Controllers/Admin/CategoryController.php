@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
+use App\Article;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Mockery\CountValidator\Exception;
 
 class CategoryController extends Controller
 {
@@ -62,11 +64,28 @@ class CategoryController extends Controller
         ]);
 
         $category = Category::find($id);
+
+        if(in_array($category->name, Category::$base))
+            return redirect()->back()->withErrors('系统分类，无法编辑！');
+
         $category->name = $request->get('name');
         if($category->save())
             return redirect('admin/resources/categories');
         else
             return redirect()->back()->withInput()->withErrors('更新失败！');
         //
+    }
+    public function list($cid=null) {
+        $categories = Category::withCount('articles')->get();
+        if($cid == null)
+            $articles = Article::orderBy('created_at', 'desc')->paginate(15);
+        else {
+            $articles = Article::where('cid', $cid)->orderBy('created_at', 'desc')->paginate(15);
+            if($articles->count() == 0)
+                $articles = [];
+        }
+
+        return view('categories.index')->with('articles_count', Article::count())->with('categoryName', $cid==null?'在线学习':Category::find($cid)->name)->with('categories', $categories)->with('articles', $articles);
+
     }
 }
