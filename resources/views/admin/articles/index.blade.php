@@ -37,7 +37,7 @@
                                 <tr>
                                     <td class="text-center"><a href="{{ url('/article/'.$article->id) }}">{{ $article->title }}</a></td>
                                     <td class="text-center">{{ $article->user->name }}</td>
-                                    <td class="text-center">{{ $article->category->name }}</td>
+                                    <td class="text-center"><a href="?cid={{ $article->cid }}">{{ $article->category->name }}</a></td>
                                     <td class="text-center">{{ $article->created_at }}</td>
                                     @can('opArticle', $article)
                                     <td class="text-center"><a class="btn btn-primary" href="{{ url('/article/'.$article->id.'/edit') }}">编辑</a></td>

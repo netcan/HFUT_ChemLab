@@ -5,6 +5,7 @@ $(".delete").on("submit", function(){
  tinymce.init({
      selector: 'textarea',
      height: 360,
+     language: 'zh_CN',
      file_browser_callback : elFinderBrowser,
      plugins: [
       'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
