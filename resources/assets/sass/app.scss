@@ -1,2 +1,19 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/font-awesome/scss/font-awesome";
+
+body {
+  font-family: "Microsoft Yahei" !important;
+  text-shadow: 0.05em 0.05em 0.2em #999999 !important;
+}
+.article-heading {
+  text-align: center;
+  border-bottom: 3px solid #ccc;
+}
+.article-info {
+  text-align: center;
+  color: gray;
+}
+.fa-btn {
+  margin-right: 6px;
+}
 
