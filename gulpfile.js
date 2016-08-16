@@ -25,7 +25,7 @@ elixir(function(mix) {
     //     'js/app.js',
     //     'js/app_config.js'
     // ]);
-    mix.copy('node_modules/font-awesome/fonts', 'public/build/fonts');
+    mix.copy('node_modules/font-awesome/fonts', 'public/fonts');
     mix.browserSync({
         proxy: 'chemlab.app'
     });
