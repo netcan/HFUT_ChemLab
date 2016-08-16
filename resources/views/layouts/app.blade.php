@@ -9,7 +9,7 @@
 
 
     <!-- Styles -->
-    <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
 <body id="app-layout">
@@ -51,7 +51,7 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 @can('manage')
-                                    <li><a><i class="fa fa-btn fa-pencil"></i>题库管理</a></li>
+                                    <li><a href="{{ url('admin/questions') }}"><i class="fa fa-btn fa-pencil"></i>题库管理</a></li>
                                     <li><a><i class="fa fa-btn fa-newspaper-o"></i>试卷管理</a></li>
                                     <li><a><i class="fa fa-btn fa-percent"></i>成绩管理</a></li>
                                     @can('manageUser')
@@ -71,8 +71,8 @@
     @yield('content')
 
     <!-- JavaScripts -->
-    <script src="{{ elixir('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="/js/tinymce/tinymce.min.js"></script>
-    <script src="{{ elixir('js/app_config.js') }}"></script>
+    <script src="{{ asset('js/app_config.js') }}"></script>
 </body>
 </html>

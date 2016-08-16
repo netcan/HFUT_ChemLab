@@ -20,10 +20,13 @@ elixir(function(mix) {
 
     mix.browserify('app_config.js', 'public/js/app_config.js');
 
-    mix.version([
-        'css/app.css',
-        'js/app.js',
-        'js/app_config.js'
-    ]);
+    // mix.version([
+    //     'css/app.css',
+    //     'js/app.js',
+    //     'js/app_config.js'
+    // ]);
     mix.copy('node_modules/font-awesome/fonts', 'public/build/fonts');
+    mix.browserSync({
+        proxy: 'chemlab.app'
+    });
 });

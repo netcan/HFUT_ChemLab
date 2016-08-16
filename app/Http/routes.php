@@ -25,6 +25,7 @@ Route::group(['middleware'=>['auth', 'manage'], 'namespace'=>'Admin', 'prefix'=>
         Route::resource('categories', 'CategoryController');
         Route::get('articles', 'ArticleController@index');
     });
+    Route::resource('questions', 'QuestionController');
 });
 
 Route::resource('article', Admin\ArticleController::class, ['except' => [
