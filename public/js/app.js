@@ -12985,8 +12985,8 @@ $('#qsave').click(function (e) {
                 }toastr.success('修改成功！');
             }
 
-            $('#question').trigger('reset');
             $('#questionModal').modal('hide');
+            $('#question').trigger('reset');
         },
         error: function error(data, json, errorThrown) {
             var errors = data.responseJSON;

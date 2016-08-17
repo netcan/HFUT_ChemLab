@@ -55,12 +55,12 @@ class QuestionController extends Controller
             ]);
 
         $question = Question::find($id);
-        $question->content = $request->content;
-        $question->A = $request->A;
-        $question->B = $request->B;
-        $question->C = $request->C;
-        $question->D = $request->D;
-        $question->ans = $request->ans;
+        $question->content = $request->get('content');
+        $question->A = $request->get('A');
+        $question->B = $request->get('B');
+        $question->C = $request->get('C');
+        $question->D = $request->get('D');
+        $question->ans = $request->get('ans');
         $question->save();
         return \Response::json($question);
     }
