@@ -1,6 +1,7 @@
 // dependencies
 window.$ = window.jQuery = require('jquery');
 require('bootstrap-sass');
+global.toastr = require('toastr');
 
 $( document ).ready(function() {
     console.log($.fn.tooltip.Constructor.VERSION);
@@ -51,6 +52,11 @@ $('.edit-question').click(function () {
     $('#questionModal').modal('show');
 });
 
+$('#questionModal').keyup(function (event) {
+    if(event.keyCode == 13)
+        $('#qsave').click();
+});
+
 $('#qsave').click(function (e) {
     var qid = $('#qid').val();
     e.preventDefault(); // 阻止默认事件，即提交事件
@@ -90,13 +96,21 @@ $('#qsave').click(function (e) {
                 var d = [data.content, data.A, data.B, data.C, data.D, getAns(data.type,data.ans)];
                 for(var i=0; i<d.length; ++i)
                     $('#question'+data.id+' td:eq('+Number(i+1)+')').text(d[i]);
+                toastr.success('修改成功！');
             }
 
-            $('#question').trigger('reset');
             $('#questionModal').modal('hide');
+            $('#question').trigger('reset');
         },
-        error: function (data) {
-            console.log(data);
+        error: function (data, json, errorThrown) {
+            var errors = data.responseJSON;
+            var errorsHtml= '';
+            $.each( errors, function( key, value ) {
+                errorsHtml += '<li>' + value[0] + '</li>';
+            });
+            toastr.error( errorsHtml , "Error " + data.status +': '+ errorThrown);
+
+            console.log(errors);
         }
     });
 });

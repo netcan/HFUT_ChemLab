@@ -16,7 +16,7 @@ class QuestionController extends Controller
     }
 
     public function index(Request $request) {
-        if($request->get('filter') == 'all')
+        if($request->get('filter') == 'all' || $request->get('filter') == null)
             $questions = Question::paginate(10);
         else if($request->get('filter') == 'multi')
             $questions = Question::where('type', 0)->paginate(10);
@@ -39,6 +39,21 @@ class QuestionController extends Controller
     }
 
     public function update(Request $request, $id) {
+        if($request->type == 0)
+            $this->validate($request, [
+                'content' => 'required',
+                'A' => 'required',
+                'B' => 'required',
+                'C' => 'required',
+                'D' => 'required',
+                'ans' => 'required',
+            ]);
+        else
+            $this->validate($request, [
+                'content' => 'required',
+                'ans' => 'required',
+            ]);
+
         $question = Question::find($id);
         $question->content = $request->content;
         $question->A = $request->A;

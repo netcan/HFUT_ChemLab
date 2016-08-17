@@ -59,8 +59,8 @@
                                         </div>
                                         <div class="modal-body">
 
-                                            <div class="row">
-                                                <div class="form-group">
+                                            <div class="form-group">
+                                                <div class="row">
                                                     <label for="qtype" class="control-label col-sm-2">题型</label>
                                                     <div class="col-sm-10">
                                                         <select class="form-control" id="qtype">
@@ -72,8 +72,8 @@
                                             </div>
 
                                             <form id="question">
-                                                <div class="row">
-                                                    <div class="form-group">
+                                                <div class="form-group">
+                                                    <div class="row">
                                                         <label for="qcontent" class="control-label col-sm-2">题目</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" id="qcontent" name="qcontent" class="form-control" required="required" placeholder="请输入题目内容">
@@ -82,8 +82,8 @@
                                                 </div>
 
                                                 <div id="qselection">
-                                                    <div class="row">
-                                                        <div class="form-group">
+                                                    <div class="form-group">
+                                                        <div class="row">
                                                             <label for="qA" class="control-label col-sm-2">A.</label>
                                                             <div class="col-sm-10">
                                                                 <input type="text" id="qA" name="qA" class="form-control" required="required" placeholder="选项A">
@@ -91,8 +91,8 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="row">
-                                                        <div class="form-group">
+                                                    <div class="form-group">
+                                                        <div class="row">
                                                             <label for="qB" class="control-label col-sm-2">B.</label>
                                                             <div class="col-sm-10">
                                                                 <input type="text" id="qB" name="qB" class="form-control" required="required" placeholder="选项B">
@@ -100,8 +100,8 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="row">
-                                                        <div class="form-group">
+                                                    <div class="form-group">
+                                                        <div class="row">
                                                             <label for="qC" class="control-label col-sm-2">C.</label>
                                                             <div class="col-sm-10">
                                                                 <input type="text" id="qC" name="qC" class="form-control" required="required" placeholder="选项C">
@@ -109,8 +109,8 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="row">
-                                                        <div class="form-group">
+                                                    <div class="form-group">
+                                                        <div class="row">
                                                             <label for="qD" class="control-label col-sm-2">D.</label>
                                                             <div class="col-sm-10">
                                                                 <input type="text" id="qD" name="qD" class="form-control" required="required" placeholder="选项D">
@@ -119,8 +119,8 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="row">
-                                                    <div class="form-group">
+                                                <div class="form-group">
+                                                    <div class="row">
                                                         <label for="qans" class="control-label col-sm-2">答案</label>
                                                         <div class="col-sm-10">
                                                             <select class="form-control" id="qans"></select>
