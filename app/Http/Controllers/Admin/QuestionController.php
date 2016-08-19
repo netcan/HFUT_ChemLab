@@ -35,13 +35,13 @@ class QuestionController extends Controller
 
     public function show($id) {
         $question = Question::find($id);
-        return \Response::json($question);
+        return $question;
     }
 
     public function update(Request $request, $id) {
         if($request->type == 0)
             $this->validate($request, [
-                'content' => 'required',
+                'content' => 'required|unique:questions,content,'.$id,
                 'A' => 'required',
                 'B' => 'required',
                 'C' => 'required',
@@ -50,7 +50,7 @@ class QuestionController extends Controller
             ]);
         else
             $this->validate($request, [
-                'content' => 'required',
+                'content' => 'required|unique:questions,content,'.$id,
                 'ans' => 'required',
             ]);
 
@@ -62,6 +62,36 @@ class QuestionController extends Controller
         $question->D = $request->get('D');
         $question->ans = $request->get('ans');
         $question->save();
-        return \Response::json($question);
+        return $question;
+    }
+    public function store(Request $request) {
+        if($request->type == 0)
+            $this->validate($request, [
+                'content' => 'required|unique:questions,content,',
+                'A' => 'required',
+                'B' => 'required',
+                'C' => 'required',
+                'D' => 'required',
+                'ans' => 'required',
+            ]);
+        else
+            $this->validate($request, [
+                'content' => 'required|unique:questions,content,',
+                'ans' => 'required',
+            ]);
+        $question = new Question();
+        $question->type = $request->get('type');
+        $question->content = $request->get('content');
+        $question->A = $request->get('A');
+        $question->B = $request->get('B');
+        $question->C = $request->get('C');
+        $question->D = $request->get('D');
+        $question->ans = $request->get('ans');
+        $question->save();
+        return $question;
+    }
+    public function destroy($id) {
+        Question::destroy($id);
+        return \Response::json('删除成功');
     }
 }

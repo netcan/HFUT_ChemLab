@@ -16,7 +16,7 @@
                             </div>
                         @endif
 
-                        <a href="questions/create" class="btn btn-block btn-success btn-lg">添加题目</a>
+                        <button class="btn btn-block btn-success btn-lg" id="add-question">添加题目</button>
                             <br>
                             <a href="?filter=all" class="btn btn-primary">显示全部 <span class="badge">{{ $questions_count['all'] }}</span></a>
                             <a href="?filter=multi" class="btn btn-info">单选题 <span class="badge">{{ $questions_count['multi'] }}</span></a>
@@ -44,7 +44,9 @@
                                     <td>{!! $question['type'] == 0?$question['C']:'' !!}</td>
                                     <td>{!! $question['type'] == 0?$question['D']:'' !!}</td>
                                     <td>{{ \App\Http\Controllers\Admin\QuestionController::getAns($question['type'], $question['ans']) }}</td>
-                                    <td><button class="btn btn-warning edit-question" value="{{ $question['id'] }}">修改</button></td>
+                                    <td><button class="btn btn-info edit-question" value="{{ $question['id'] }}">修改</button>
+                                    <button class="btn btn-warning delete-question" value="{{ $question['id'] }}">删除</button>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -55,7 +57,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title" id="questions_action">修改题目</h4>
+                                            <h4 class="modal-title" id="questions-title">修改题目</h4>
                                         </div>
                                         <div class="modal-body">
 
