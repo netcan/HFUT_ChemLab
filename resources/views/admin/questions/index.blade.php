@@ -6,7 +6,7 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a href="{{ url('admin/resources') }}">资料库管理</a> > 题库管理
+                        题库管理
                     </div>
                     <div class="panel-body">
                         @if (count($errors) > 0)
@@ -57,7 +57,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title" id="questions-title">修改题目</h4>
+                                            <h4 class="modal-title" id="question-title">修改题目</h4>
                                         </div>
                                         <div class="modal-body">
 

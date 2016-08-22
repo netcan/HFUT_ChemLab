@@ -52,7 +52,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 @can('manage')
                                     <li><a href="{{ url('admin/questions') }}"><i class="fa fa-btn fa-pencil"></i>题库管理</a></li>
-                                    <li><a><i class="fa fa-btn fa-newspaper-o"></i>试卷管理</a></li>
+                                    <li><a href="{{ url('admin/papers') }}"><i class="fa fa-btn fa-newspaper-o"></i>试卷管理</a></li>
                                     <li><a><i class="fa fa-btn fa-percent"></i>成绩管理</a></li>
                                     @can('manageUser')
                                         <li><a><i class="fa fa-btn fa-users"></i>用户管理</a></li>

@@ -14,6 +14,9 @@ class QuestionController extends Controller
     public static function getAns($type, $ans) {
         return Question::$Ans[$type*4 + $ans];
     }
+    public static function getType($type) {
+        return Question::$Type[$type];
+    }
 
     public function index(Request $request) {
         if($request->get('filter') == 'all' || $request->get('filter') == null)

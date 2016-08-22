@@ -26,6 +26,9 @@ Route::group(['middleware'=>['auth', 'manage'], 'namespace'=>'Admin', 'prefix'=>
         Route::get('articles', 'ArticleController@index');
     });
     Route::resource('questions', 'QuestionController');
+    Route::put('papers/{pid}/edit/{qid}', 'PaperController@add_question');
+    Route::delete('papers/{pid}/edit/{qid}', 'PaperController@delete_question');
+    Route::resource('papers', 'PaperController');
 });
 
 Route::resource('article', Admin\ArticleController::class, ['except' => [

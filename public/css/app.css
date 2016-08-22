@@ -8098,4 +8098,8 @@ body {
 .fa-btn {
   margin-right: 6px; }
 
+#paper input[type='checkbox'] {
+  width: 20px;
+  height: 20px; }
+
 /*# sourceMappingURL=app.css.map */

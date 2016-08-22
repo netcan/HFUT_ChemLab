@@ -12917,7 +12917,7 @@ var getAns = function getAns(type, ans) {
 
 $.ajaxSetup({
     headers: {
-        'X-CSRF-TOKEN': $('#question input[name="_token"]').val()
+        'X-CSRF-TOKEN': $('input[name="_token"]').val()
     }
 });
 
@@ -13055,6 +13055,60 @@ $('#qsave').click(function (e) {
             toastr.error(errorsHtml, "Error " + data.status + ': ' + errorThrown);
         }
     });
+});
+
+// paper manage
+var purl = 'edit/';
+$('body').on('click', '.paper-question-action', function () {
+    var button = $(this);
+    var action = button.text();
+    var qid = button.val();
+    console.log(action);
+    if (action == '添加') {
+        $.ajax({
+            type: 'put',
+            url: purl + qid,
+            success: function success(data) {
+                button.attr('class', 'btn btn-warning paper-question-action');
+                button.text('移除');
+                console.log(data);
+                toastr.success('添加成功');
+            },
+            error: function error(data, json, errorThrown) {
+                console.log(data);
+                // $('.panel-body').append(data.responseText);
+                var errors = data.responseJSON;
+                var errorsHtml = '';
+                $.each(errors, function (key, value) {
+                    errorsHtml += '<li>' + value[0] + '</li>';
+                });
+                toastr.error(errorsHtml, "Error " + data.status + ': ' + errorThrown);
+                $('.panel-body').append(data.responseText);
+            }
+        });
+    } else {
+        $.ajax({
+            type: 'delete',
+            url: purl + qid,
+            success: function success(data) {
+                button.attr('class', 'btn btn-info paper-question-action');
+                button.text('添加');
+                console.log(data);
+                toastr.warning('移除成功');
+            },
+            error: function error(data, json, errorThrown) {
+                console.log(data);
+                // $('.panel-body').append(data.responseText);
+                var errors = data.responseJSON;
+                var errorsHtml = '';
+                $.each(errors, function (key, value) {
+                    errorsHtml += '<li>' + value[0] + '</li>';
+                });
+                toastr.error(errorsHtml, "Error " + data.status + ': ' + errorThrown);
+                $('.panel-body').append(data.responseText);
+            }
+        });
+    }
 });
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
