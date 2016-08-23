@@ -25,7 +25,7 @@
                                 <th>考试时间（分钟）</th>
                                 <th>开始时间</th>
                                 <th>结束时间</th>
-                                <th>编辑试卷</th>
+                                <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -37,11 +37,22 @@
                                     <td>{{ $paper->time }}</td>
                                     <td>{{ $paper->start_time }}</td>
                                     <td>{{ $paper->end_time }}</td>
-                                    <td><a href="papers/{{ $paper->id }}/edit" class="btn btn-info">编辑试卷</a></td>
+                                    <td>
+                                        <a href="papers/{{ $paper->id }}/edit" class="btn btn-info">编辑</a>
+
+                                        <form class="delete" action="{{ url('/admin/papers/'.$paper->id) }}" method="POST" style="display: inline;">
+                                            {!! csrf_field() !!}
+                                            {{ method_field('DELETE') }}
+                                            <input type="submit" class="btn btn-danger" value="删除"/>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
+                            <div class="text-right">
+                                {{ $papers->links() }}
+                            </div>
                     </div>
                 </div>
             </div>

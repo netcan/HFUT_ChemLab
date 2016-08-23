@@ -33,7 +33,8 @@ class ArticleController extends Controller
         if(Gate::denies('opArticle', $article))
             abort(403);
         else {
-            $article->delete(); return redirect()->back();
+            $article->delete();
+            return redirect()->back();
         }
     }
     public function edit($id) {
