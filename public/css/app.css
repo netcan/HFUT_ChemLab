@@ -8084,8 +8084,7 @@ button.toast-close-button {
     width: 25em; } }
 
 body {
-  font-family: "Microsoft Yahei" !important;
-  text-shadow: 0.05em 0.05em 0.2em #999999 !important; }
+  font-family: "Microsoft Yahei"; }
 
 .article-heading {
   text-align: center;
@@ -8101,5 +8100,12 @@ body {
 #paper input[type='checkbox'] {
   width: 20px;
   height: 20px; }
+
+.exam input[type='radio'] {
+  width: 18px;
+  height: 18px; }
+
+.exam {
+  font-size: 17px; }
 
 /*# sourceMappingURL=app.css.map */

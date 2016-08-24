@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="container">
         <div class="row">
@@ -35,11 +34,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="start_time">开始时间</label>
-                                <input type="datetime-local" class="form-control" name="start_time" id="start_time" placeholder="开始时间" value="{{ \Carbon\Carbon::now()->format('Y-m-d\TH:i') }}">
+                                <input type="datetime-local" class="form-control" name="start_time" id="start_time" placeholder="开始时间" value="{{ old('start_time', \Carbon\Carbon::now()->format('Y-m-d\TH:i')) }}">
                             </div>
                             <div class="form-group">
                                 <label for="end_time">结束时间</label>
-                                <input type="datetime-local" class="form-control" name="end_time" id="end_time" placeholder="结束时间" value="{{ \Carbon\Carbon::create(2099,12,31,0,0)->format('Y-m-d\TH:i') }}">
+                                <input type="datetime-local" class="form-control" name="end_time" id="end_time" placeholder="结束时间" value="{{ old('end_time', \Carbon\Carbon::create(2099,12,31,0,0)->format('Y-m-d\TH:i')) }}">
                             </div>
                             <button type="submit" class="btn btn-success">提交</button>
                             {!! csrf_field() !!}

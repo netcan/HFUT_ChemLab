@@ -10,6 +10,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}"></script>
 
 </head>
 <body id="app-layout">
@@ -69,10 +70,9 @@
     </nav>
 
     @yield('content')
-
     <!-- JavaScripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
     <script src="/js/tinymce/tinymce.min.js"></script>
     <script src="{{ asset('js/app_config.js') }}"></script>
+
 </body>
 </html>

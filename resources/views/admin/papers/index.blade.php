@@ -3,7 +3,8 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12">
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         试卷管理
@@ -22,6 +23,7 @@
                                 <th>试卷名</th>
                                 <th>单选题分值</th>
                                 <th>判断题分值</th>
+                                <th>满分</th>
                                 <th>考试时间（分钟）</th>
                                 <th>开始时间</th>
                                 <th>结束时间</th>
@@ -31,9 +33,10 @@
                             <tbody>
                             @foreach($papers as $paper)
                                 <tr>
-                                    <td>{{ $paper->title }}</td>
-                                    <td>{{ $paper->multi_score }}</td>
-                                    <td>{{ $paper->judge_score }}</td>
+                                    <td><a href="{{ url('/paper/'.$paper->id) }}">{{ $paper->title }}</a></td>
+                                    <td>{{ $paper->questions->where('type', 0)->count() }} x {{ $paper->multi_score }} </td>
+                                    <td>{{ $paper->questions->where('type', 1)->count() }} x {{ $paper->judge_score }} </td>
+                                    <td>{{ $paper->questions->where('type', 0)->count()*$paper->multi_score + $paper->questions->where('type', 1)->count()*$paper->judge_score }}</td>
                                     <td>{{ $paper->time }}</td>
                                     <td>{{ $paper->start_time }}</td>
                                     <td>{{ $paper->end_time }}</td>

@@ -13,7 +13,9 @@ use Carbon\Carbon;
 class PaperController extends Controller
 {
     public function index() {
-        return view('admin.papers.index', ['papers'=>Paper::paginate(10)]);
+        return view('admin.papers.index', [
+            'papers'=>Paper::with('questions')->paginate(10),
+        ]);
     }
     public function edit($id) {
         $questions_added = [];
@@ -43,7 +45,7 @@ class PaperController extends Controller
         $start_time = Carbon::parse($request->get('start_time'));
         $end_time = Carbon::parse($request->get('end_time'));
         $this->validate($request, [
-            'name'=>'required',
+            'name'=>'required|unique:papers,title,'.$id,
             'multi_score'=>'required|numeric',
             'judge_score'=>'required|numeric',
             'time'=>'required|numeric',
@@ -80,7 +82,7 @@ class PaperController extends Controller
         $start_time = Carbon::parse($request->get('start_time'));
         $end_time = Carbon::parse($request->get('end_time'));
         $this->validate($request, [
-            'name'=>'required',
+            'name'=>'required|unique:papers,title',
             'multi_score'=>'required|numeric',
             'judge_score'=>'required|numeric',
             'time'=>'required|numeric',
@@ -98,5 +100,10 @@ class PaperController extends Controller
             return redirect('admin/papers');
         else
             return redirect()->back()->withInput()->withErrors('保存失败！');
+    }
+    public function exam($id) {
+        return view('paper.exam', [
+            'paper'=>Paper::find($id),
+        ]);
     }
 }

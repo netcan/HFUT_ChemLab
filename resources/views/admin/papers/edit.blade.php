@@ -19,15 +19,15 @@
                         <form action="{{ url('/admin/papers/'.$paper->id) }}" method="POST" class="form-inline">
                             <div class="form-group">
                                 <label for="name">试卷名</label>
-                                <input type="text" class="form-control" name="name" id="name" placeholder="试卷名" value="{{ $paper->title }}">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="试卷名" value="{{ old('title', $paper->title) }}">
                             </div>
                             <div class="form-group">
                                 <label for="multi_score">单选题分值</label>
-                                <input type="number" step="0.1" name="multi_score" class="form-control" id="multi_score" placeholder="单选题分值" value="{{ $paper->multi_score }}">
+                                <input type="number" step="0.1" name="multi_score" class="form-control" id="multi_score" placeholder="单选题分值" value="{{ old('multi_score', $paper->multi_score) }}">
                             </div>
                             <div class="form-group">
                                 <label for="judge_score">判断题分值</label>
-                                <input type="number" step="0.1" name="judge_score" class="form-control" id="judge_score" placeholder="判断题分值" value="{{ $paper->judge_score }}">
+                                <input type="number" step="0.1" name="judge_score" class="form-control" id="judge_score" placeholder="判断题分值" value="{{ old('judge_score', $paper->judge_score) }}">
                             </div>
                             <div class="form-group">
                                 <label for="time">考试时间(分钟)</label>
