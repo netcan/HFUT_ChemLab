@@ -39,7 +39,6 @@ class Question extends Model
     ];
 
     public function papers() {
-        return $this->belongsToMany('App\Paper', 'paper_question', 'pid', 'qid')
-            ->withTimestamps();
+        return $this->belongsToMany('App\Paper', 'paper_question', 'qid', 'pid');
     }
 }

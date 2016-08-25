@@ -9,6 +9,8 @@ use App\Question;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 class PaperController extends Controller
 {
@@ -102,8 +104,44 @@ class PaperController extends Controller
             return redirect()->back()->withInput()->withErrors('保存失败！');
     }
     public function exam($id) {
+        $paper = Paper::find($id);
+        $user = Auth::user();
+        if($user->isStudent()) {
+            if(! $user->papers()->find($id))
+                $user->papers()->attach($id, [
+                    'start_time'=>Carbon::now(),
+                    'end_time'=>Carbon::now()->addMinutes($paper->time)->min(Carbon::parse($paper->end_time)),
+                ]);
+        }
         return view('paper.exam', [
-            'paper'=>Paper::find($id),
+            'paper'=>$paper,
         ]);
+    }
+    public function examRemainTime($id) {
+        $pivot = Auth::user()->papers()->find($id)->pivot;
+        $start_time = Carbon::parse($pivot->start_time);
+        $end_time = Carbon::parse($pivot->end_time);
+        $now = Carbon::now();
+        $all = $start_time->diffInSeconds($end_time);
+        $timeUsed = $start_time->diffInSeconds($now);
+        $remainTime = $all - $timeUsed;
+        $remainTime_minute = $remainTime / 60;
+
+        if($now >= $end_time)
+            return \Response::json([
+                'all'=>$all,
+                'timeUsed'=>$timeUsed,
+                'remainTime'=>0,
+                'remainTime_Minute'=>0,
+                'percent'=>'100%',
+            ]);
+        else
+            return \Response::json([
+                'all'=>$all,
+                'timeUsed'=>$timeUsed,
+                'remainTime'=>$remainTime,
+                'remainTime_Minute'=>round($remainTime_minute),
+                'percent'=>sprintf('%0.1f%%',$timeUsed*100/$all),
+            ]);
     }
 }

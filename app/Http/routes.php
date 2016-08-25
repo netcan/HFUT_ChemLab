@@ -36,8 +36,9 @@ Route::resource('article', Admin\ArticleController::class, ['except' => [
 ]]);
 Route::get('categories/{cid?}', 'Admin\CategoryController@list');
 
-Route::group(['middleware'=>'auth'], function() {
-    Route::get('paper/{id}', 'Admin\PaperController@exam');
+Route::group(['middleware'=>'auth', 'prefix'=>'paper'], function() {
+    Route::get('{id}', 'Admin\PaperController@exam');
+    Route::get('{id}/remaintime', 'Admin\PaperController@examRemainTime');
 });
 
 

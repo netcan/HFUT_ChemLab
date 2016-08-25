@@ -14,6 +14,12 @@
                         {{ $paper->title }}
                     </div>
                     <div class="panel-body">
+                        @cannot('manage')
+                            <div class="progress">
+                                <div  id="remainTime" class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0">
+                                </div>
+                            </div>
+                        @endcannot
                         <form class="form-inline exam">
                             <strong>一、判断题（每题 {{ $paper->judge_score }} 分，共 {{ $paper->questions()->where('type', 1)->count() * $paper->judge_score }} 分）</strong>
                             <ol>
@@ -38,10 +44,16 @@
                                 @foreach($paper->questions()->where('type', 0)->get() as $question)
                                     <li>
                                     {{ $question->content }}<br>
-                                        <input type="radio" name="question{{ $question->id }}" value="0">A. {{ $question->A }}<br>
-                                        <input type="radio" name="question{{ $question->id }}" value="1">B. {{ $question->B }}<br>
-                                        <input type="radio" name="question{{ $question->id }}" value="2">C. {{ $question->C }}<br>
-                                        <input type="radio" name="question{{ $question->id }}" value="3">D. {{ $question->D }}<br>
+                                        @php
+                                            $order = ['A', 'B', 'C', 'D'];
+                                            $disorder = collect($order)->shuffle()->all();
+                                            $selections = $question->getAttributes();
+                                        @endphp
+
+                                        @for($i=0; $i<4; ++$i)
+                                        <input type="radio" name="question{{ $question->id }}" value="{{ array_search($disorder[$i], $order) }}"> {{ $order[$i] }}. {{ $selections[$disorder[$i]] }}<br>
+                                        @endfor
+
                                         @can('manage')
                                             <script>
                                                 $('input:radio[name=question{{ $question->id }}]').filter('[value={{ $question->ans }}]').prop('checked', true);
@@ -55,6 +67,16 @@
                                     {{ csrf_field() }}
                                     <button type="submit" class="btn btn-primary">交卷</button>
                                 </div>
+                                <script>
+                                    // exam
+                                    function remainTime() {
+                                        $.get('{{ $paper->id }}/remaintime', function (data) {
+                                            $('#remainTime').css('width', data.percent);
+                                            $('#remainTime').text('剩余时间：'+data.remainTime_Minute+'分钟');
+                                        });
+                                    }
+                                    setInterval(remainTime, 1000);
+                                </script>
                             @endcannot
                         </form>
                     </div>

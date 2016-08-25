@@ -65,4 +65,8 @@ class User extends Authenticatable
     public function articles() {
         return $this->hasMany('App\Article', 'cid', 'id');
     }
+    public function papers() {
+        return $this->belongsToMany('App\Paper', 'user_paper', 'uid', 'pid')
+            ->withPivot('qid', 'ans', 'start_time', 'end_time');
+    }
 }

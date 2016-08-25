@@ -18,6 +18,8 @@ class CreateUserPaperTable extends Migration
             $table->integer('pid');
             $table->integer('qid');
             $table->integer('ans');
+            $table->dateTimeTz('start_time');
+            $table->dateTimeTz('end_time');
             $table->timestamps();
         });
     }
