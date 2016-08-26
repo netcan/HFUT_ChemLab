@@ -36,9 +36,12 @@ Route::resource('article', Admin\ArticleController::class, ['except' => [
 ]]);
 Route::get('categories/{cid?}', 'Admin\CategoryController@list');
 
+Route::get('/papers', 'Admin\PaperController@listPapers');
+
 Route::group(['middleware'=>'auth', 'prefix'=>'paper'], function() {
     Route::get('{id}', 'Admin\PaperController@exam');
     Route::get('{id}/remaintime', 'Admin\PaperController@examRemainTime');
+    Route::post('{id}/submit', 'Admin\PaperController@examSubmit');
 });
 
 

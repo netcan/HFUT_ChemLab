@@ -20,7 +20,13 @@
                                 </div>
                             </div>
                         @endcannot
-                        <form class="form-inline exam">
+
+                            @can('manage')
+                                <form class="form-inline exam">
+                            @else
+                                <form class="form-inline exam" action="{{ $paper->id }}/submit" method="POST">
+                            @endcan
+
                             <strong>一、判断题（每题 {{ $paper->judge_score }} 分，共 {{ $paper->questions()->where('type', 1)->count() * $paper->judge_score }} 分）</strong>
                             <ol>
                                 @foreach($paper->questions()->where('type', 1)->get() as $question)

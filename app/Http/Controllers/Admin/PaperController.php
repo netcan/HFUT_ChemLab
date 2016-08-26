@@ -106,12 +106,30 @@ class PaperController extends Controller
     public function exam($id) {
         $paper = Paper::find($id);
         $user = Auth::user();
+
+
         if($user->isStudent()) {
-            if(! $user->papers()->find($id))
+            $now = Carbon::now();
+            if($now->lt(Carbon::parse($paper->start_time)))
+                abort('403', '考试未开始！');
+            else if($now->gt(Carbon::parse($paper->end_time)->addMinutes(5)))
+                abort('403', '考试已结束！');
+
+            $user_paper = $user->papers()->find($id);
+            if(! $user_paper) // 未考过
                 $user->papers()->attach($id, [
                     'start_time'=>Carbon::now(),
                     'end_time'=>Carbon::now()->addMinutes($paper->time)->min(Carbon::parse($paper->end_time)),
+                    'score'=>-1,
                 ]);
+            else {
+                if($user_paper->pivot->score != -1)
+                    abort('403', '你已经交过卷！');
+                else if($now->gt(
+                    Carbon::parse($user_paper->pivot->end_time)
+                ))
+                    abort('403', '考试已结束！');
+            }
         }
         return view('paper.exam', [
             'paper'=>$paper,
@@ -144,4 +162,48 @@ class PaperController extends Controller
                 'percent'=>sprintf('%0.1f%%',$timeUsed*100/$all),
             ]);
     }
+
+    public function examSubmit(Request $request, $id) {
+        $user = Auth::user();
+        $paper = Paper::find($id);
+        if($user->papers()->find($id)->pivot->score != -1)
+            abort('403', '你已经交过卷！');
+
+        $scoreValue = [ $paper->multi_score, $paper->judge_score ];
+        $score = 0;
+
+        foreach ($paper->questions()->get() as $question) {
+            $ans = $request->get('question'.$question->id);
+            if(isset($ans) && $ans != null) {
+                if ($ans == $question->ans)
+                    $score += $scoreValue[$question->type];
+                $user->questions()->sync([$question->id => [
+                    'pid'=>$paper->id,
+                    'ans'=>$ans,
+                ]], false);
+            }
+            else {
+                $user->questions()->sync([$question->id => [
+                    'pid'=>$paper->id,
+                    'ans'=>-1,
+                ]], false);
+            }
+        }
+        $user->papers()->updateExistingPivot($paper->id, [
+            'score'=>$score,
+        ]);
+    }
+
+    public static function get_full_score($pid) {
+        $paper = Paper::find($pid);
+        return $paper->questions->where('type', 0)->count() * $paper->multi_score + $paper->questions->where('type', 1)->count() * $paper->judge_score;
+    }
+
+    public function listPapers() {
+        $papers = Paper::orderBy('created_at', 'desc')->paginate(10);
+        return view('paper.index', [
+            'papers' => $papers,
+        ]);
+    }
+
 }

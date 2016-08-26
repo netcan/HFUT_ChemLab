@@ -7,7 +7,7 @@
         <div class="col-md-3">
             <div class="row">
                 <p><a href="{{ url('categories') }}" class="btn btn-primary btn-lg btn-block">在线学习 <span class="badge">{{ $data['articles_count'] }}</span></a></p>
-                <p><button type="button" class="btn btn-primary btn-lg btn-block">在线考试</button> </p>
+                <p><a href="{{ url('papers') }}" type="button" class="btn btn-primary btn-lg btn-block">在线考试</a> </p>
             </div>
         </div>
         {{-- System information --}}

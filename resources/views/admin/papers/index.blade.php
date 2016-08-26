@@ -36,7 +36,7 @@
                                     <td><a href="{{ url('/paper/'.$paper->id) }}">{{ $paper->title }}</a></td>
                                     <td>{{ $paper->questions->where('type', 0)->count() }} x {{ $paper->multi_score }} </td>
                                     <td>{{ $paper->questions->where('type', 1)->count() }} x {{ $paper->judge_score }} </td>
-                                    <td>{{ $paper->questions->where('type', 0)->count()*$paper->multi_score + $paper->questions->where('type', 1)->count()*$paper->judge_score }}</td>
+                                    <td>{{ \App\Http\Controllers\Admin\PaperController::get_full_score($paper->id) }}</td>
                                     <td>{{ $paper->time }}</td>
                                     <td>{{ $paper->start_time }}</td>
                                     <td>{{ $paper->end_time }}</td>

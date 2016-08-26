@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserPaperTable extends Migration
+class CreateUserQuestionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,12 @@ class CreateUserPaperTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_paper', function (Blueprint $table) {
+        Schema::create('user_question', function(Blueprint $table) {
             $table->increments('id');
             $table->integer('uid');
             $table->integer('pid');
-            $table->integer('score');
-            $table->dateTimeTz('start_time');
-            $table->dateTimeTz('end_time');
-            $table->timestamps();
+            $table->integer('qid');
+            $table->integer('ans');
         });
     }
 
@@ -30,6 +28,6 @@ class CreateUserPaperTable extends Migration
      */
     public function down()
     {
-        Schema::drop('user_paper');
+        //
     }
 }

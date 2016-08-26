@@ -67,6 +67,10 @@ class User extends Authenticatable
     }
     public function papers() {
         return $this->belongsToMany('App\Paper', 'user_paper', 'uid', 'pid')
-            ->withPivot('qid', 'ans', 'start_time', 'end_time');
+            ->withPivot('start_time', 'end_time', 'score');
+    }
+    public function questions() {
+        return $this->belongsToMany('App\Question', 'user_question', 'uid', 'qid')
+            ->withPivot('qid', 'ans');
     }
 }
