@@ -6,6 +6,8 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Article;
+use App\Paper;
+
 
 class HomeController extends Controller
 {
@@ -27,6 +29,7 @@ class HomeController extends Controller
             'articles_count' => Article::count(),
             'systeminfo' => Article::where('cid', $baseId[0])->orderBy('created_at', 'desc')->first(),
             'notices' => Article::where('cid', $baseId[1])->orderBy('created_at', 'desc')->take(8)->get(),
+            'papers_count' => Paper::where('full_score', '<>', 0)->count(),
         ];
 
         return view('index')->with('data', $data);

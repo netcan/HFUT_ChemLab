@@ -33,13 +33,19 @@ class PaperController extends Controller
 
     public function add_question($pid, $qid) {
         $paper = Paper::find($pid);
+        $scoreValue = [$paper->multi_score, $paper->judge_score];
         $paper->questions()->sync([$qid], false);
+        $paper->full_score += $scoreValue[Question::find($qid)->type];
+        $paper->save();
         return \Response::json('success');
     }
 
     public function delete_question($pid, $qid) {
         $paper = Paper::find($pid);
         $paper->questions()->detach($qid);
+        $scoreValue = [$paper->multi_score, $paper->judge_score];
+        $paper->full_score -= $scoreValue[Question::find($qid)->type];
+        $paper->save();
         return \Response::json('success');
     }
 
@@ -60,6 +66,7 @@ class PaperController extends Controller
             'multi_score' => $request->get('multi_score'),
             'judge_score' => $request->get('judge_score'),
             'time' => $request->get('time'),
+            'full_score' => $paper->questions->where('type', 0)->count() * $request->get('multi_score') + $paper->questions->where('type', 1)->count() * $request->get('judge_score'),
             'start_time' => $request->get('start_time'),
             'end_time' => $request->get('end_time')
         ]);
@@ -107,32 +114,25 @@ class PaperController extends Controller
         $paper = Paper::find($id);
         $user = Auth::user();
 
-
         if($user->isStudent()) {
+            $user_paper = $user->papers()->find($id);
             $now = Carbon::now();
             if($now->lt(Carbon::parse($paper->start_time)))
                 abort('403', '考试未开始！');
-            else if($now->gt(Carbon::parse($paper->end_time)->addMinutes(5)))
-                abort('403', '考试已结束！');
 
-            $user_paper = $user->papers()->find($id);
             if(! $user_paper) // 未考过
                 $user->papers()->attach($id, [
                     'start_time'=>Carbon::now(),
                     'end_time'=>Carbon::now()->addMinutes($paper->time)->min(Carbon::parse($paper->end_time)),
                     'score'=>-1,
                 ]);
-            else {
-                if($user_paper->pivot->score != -1)
-                    abort('403', '你已经交过卷！');
-                else if($now->gt(
-                    Carbon::parse($user_paper->pivot->end_time)
-                ))
-                    abort('403', '考试已结束！');
-            }
         }
+
+        $user_paper = $user->papers()->find($id);
         return view('paper.exam', [
             'paper'=>$paper,
+            'user'=>$user,
+            'user_paper'=>$user_paper,
         ]);
     }
     public function examRemainTime($id) {
@@ -169,6 +169,12 @@ class PaperController extends Controller
         if($user->papers()->find($id)->pivot->score != -1)
             abort('403', '你已经交过卷！');
 
+        $now = Carbon::now();
+        if($now->lt(Carbon::parse($paper->start_time)))
+            abort('403', '考试未开始！');
+        else if($now->gt(Carbon::parse($paper->end_time)->addMinutes(5)))
+            abort('403', '考试已结束！');
+
         $scoreValue = [ $paper->multi_score, $paper->judge_score ];
         $score = 0;
 
@@ -192,15 +198,13 @@ class PaperController extends Controller
         $user->papers()->updateExistingPivot($paper->id, [
             'score'=>$score,
         ]);
+
+        return redirect('/papers');
     }
 
-    public static function get_full_score($pid) {
-        $paper = Paper::find($pid);
-        return $paper->questions->where('type', 0)->count() * $paper->multi_score + $paper->questions->where('type', 1)->count() * $paper->judge_score;
-    }
 
     public function listPapers() {
-        $papers = Paper::orderBy('created_at', 'desc')->paginate(10);
+        $papers = Paper::where('full_score', '<>', 0)->orderBy('created_at', 'desc')->paginate(10);
         return view('paper.index', [
             'papers' => $papers,
         ]);

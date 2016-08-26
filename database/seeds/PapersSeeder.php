@@ -18,6 +18,7 @@ class PapersSeeder extends Seeder
                 'multi_score' => 2,
                 'judge_score' => 1,
                 'time' => 30,
+                'full_score' => 0,
                 'start_time' => \Carbon\Carbon::createFromDate(2016,8,21)->toDateTimeString(),
                 'end_time' => \Carbon\Carbon::createFromDate(2099,8,21)->toDateTimeString(),
             ]);

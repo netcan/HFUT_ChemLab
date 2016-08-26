@@ -20,31 +20,32 @@
                                 <th>考试时间（分钟）</th>
                                 <th>开始时间</th>
                                 <th>结束时间</th>
-                                <th>操作</th>
+                                <th>动作</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($papers as $paper)
-                                @if(\App\Http\Controllers\Admin\PaperController::get_full_score($paper->id))
                                     <tr>
-                                        <td><a href="{{ url('/paper/'.$paper->id) }}">{{ $paper->title }}</a></td>
+                                        <td>{{ $paper->title }}</td>
                                         <td>{{ $paper->questions->where('type', 0)->count() }} x {{ $paper->multi_score }} </td>
                                         <td>{{ $paper->questions->where('type', 1)->count() }} x {{ $paper->judge_score }} </td>
-                                        <td>{{ \App\Http\Controllers\Admin\PaperController::get_full_score($paper->id) }}</td>
+                                        <td>{{ $paper->full_score }}</td>
                                         <td>{{ $paper->time }}</td>
                                         <td>{{ $paper->start_time }}</td>
                                         <td>{{ $paper->end_time }}</td>
                                         <td>
-                                            <a href="papers/{{ $paper->id }}/edit" class="btn btn-info">编辑</a>
+                                            @can('manage')
+                                                <a href="paper/{{ $paper->id }}" class="btn btn-info">浏览试卷</a>
+                                            @else
+                                                @if(!auth()->user()->papers()->find($paper->id) || auth()->user()->papers()->find($paper->id)->pivot->score == -1)
+                                                    <a href="paper/{{ $paper->id }}" class="btn btn-primary">开始考试</a>
+                                                @else
+                                                    <a href="paper/{{ $paper->id }}" class="btn btn-info">答题结果</a>
+                                                @endif
+                                            @endcan
 
-                                            <form class="delete" action="{{ url('/admin/papers/'.$paper->id) }}" method="POST" style="display: inline;">
-                                                {!! csrf_field() !!}
-                                                {{ method_field('DELETE') }}
-                                                <input type="submit" class="btn btn-danger" value="删除"/>
-                                            </form>
                                         </td>
                                     </tr>
-                                @endif
                             @endforeach
                             </tbody>
                         </table>
