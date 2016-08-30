@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 
 use App\Paper;
+use App\User;
 use App\Question;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -210,4 +211,26 @@ class PaperController extends Controller
         ]);
     }
 
+    public function scoreIndex() {
+        $papers = Paper::where('full_score', '<>', 0)->orderBy('created_at', 'desc')->paginate(10);
+        return view('admin.scoreMgr.index', [
+            'papers' => $papers,
+        ]);
+    }
+
+    public function listExaminees($pid) {
+        $paper = Paper::find($pid);
+        $examinees = $paper->users()->where('score', '<>', -1)->orderBy('score', 'desc')->paginate(10);
+        return view('admin.scoreMgr.examinees', [
+            'paper' => $paper,
+            'examinees' => $examinees
+        ]);
+    }
+
+    public function reExam($pid, $uid) {
+        $user = User::find($uid);
+        $user->questions_pid()->detach($pid);
+        $user->papers()->detach($pid);
+        return redirect()->back();
+    }
 }

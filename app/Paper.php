@@ -14,6 +14,7 @@ class Paper extends Model
             ->withTimestamps();
     }
     public function users() {
-        return $this->belongsToMany('App\Question', 'user_paper', 'pid', 'uid');
+        return $this->belongsToMany('App\User', 'user_paper', 'pid', 'uid')
+            ->withPivot('start_time', 'end_time', 'score');
     }
 }

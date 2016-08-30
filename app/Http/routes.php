@@ -29,6 +29,10 @@ Route::group(['middleware'=>['auth', 'manage'], 'namespace'=>'Admin', 'prefix'=>
     Route::put('papers/{pid}/edit/{qid}', 'PaperController@add_question');
     Route::delete('papers/{pid}/edit/{qid}', 'PaperController@delete_question');
     Route::resource('papers', 'PaperController');
+
+    Route::get('scoreMgr', 'PaperController@scoreIndex');
+    Route::get('scoreMgr/{pid}', 'PaperController@listExaminees');
+    Route::delete('scoreMgr/{pid}/reExam/{uid}', 'PaperController@reExam');
 });
 
 Route::resource('article', Admin\ArticleController::class, ['except' => [
@@ -36,12 +40,14 @@ Route::resource('article', Admin\ArticleController::class, ['except' => [
 ]]);
 Route::get('categories/{cid?}', 'Admin\CategoryController@list');
 
-Route::get('/papers', 'Admin\PaperController@listPapers');
 
-Route::group(['middleware'=>'auth', 'prefix'=>'paper'], function() {
-    Route::get('{id}', 'Admin\PaperController@exam');
-    Route::get('{id}/remaintime', 'Admin\PaperController@examRemainTime');
-    Route::post('{id}/submit', 'Admin\PaperController@examSubmit');
+Route::group(['middleware'=>'auth', 'prefix'=>'/'], function() {
+    Route::get('papers', 'Admin\PaperController@listPapers');
+    Route::group(['prefix'=>'paper'], function () {
+        Route::get('{id}', 'Admin\PaperController@exam');
+        Route::get('{id}/remaintime', 'Admin\PaperController@examRemainTime');
+        Route::post('{id}/submit', 'Admin\PaperController@examSubmit');
+    });
 });
 
 

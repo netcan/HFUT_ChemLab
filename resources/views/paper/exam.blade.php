@@ -54,14 +54,14 @@
                                         @else
                                             @if($user_paper->pivot->score != -1)
                                                 @php
-                                                    $yourAns = $user->questions()->find($question->id)->pivot->ans;
+                                                    $yourAns = $user->questions()->wherePivot('pid', $paper->id)->find($question->id)->pivot->ans;
                                                     $ans = $question->ans;
-                                                    if($yourAns == -1) $yourAns = "";
+                                                    if($yourAns == -1) $yourAns = null;
                                                 @endphp
-                                                @if($yourAns != $ans || $yourAns == null)
-                                                    <p class="text-danger">您的答案错误</p>
-                                                @else
+                                                @if(isset($yourAns) && $yourAns == $ans)
                                                     <p class="text-success">您的答案正确</p>
+                                                @else
+                                                    <p class="text-danger">您的答案错误</p>
                                                 @endif
                                                 <script>
                                                     $('#question{{ $question->id }}').val({{ $yourAns }})
@@ -93,15 +93,15 @@
                                         @else
                                             @if($user_paper->pivot->score != -1)
                                                 @php
-                                                    $yourAns = $user->questions()->find($question->id)->pivot->ans;
+                                                    $yourAns = $user->questions()->wherePivot('pid', $paper->id)->find($question->id)->pivot->ans;
                                                     $ans = $question->ans;
                                                     $ansText = $selections[$order[$ans]];
-                                                    if($yourAns == -1) $yourAns = "";
+                                                    if($yourAns == -1) $yourAns = null;
                                                 @endphp
-                                                @if($yourAns != $ans || $yourAns == null)
-                                                    <p class="text-danger">您的答案错误，正确答案是：`{{ $ansText }}`</p>
-                                                @else
+                                                @if(isset($yourAns) && $yourAns == $ans)
                                                     <p class="text-success">您的答案正确</p>
+                                                @else
+                                                    <p class="text-danger">您的答案错误，正确答案是：`{{ $ansText }}`</p>
                                                 @endif
 
                                                 <script>
