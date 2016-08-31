@@ -56,7 +56,7 @@
                                     <li><a href="{{ url('admin/papers') }}"><i class="fa fa-btn fa-newspaper-o"></i>试卷管理</a></li>
                                     <li><a href="{{ url('admin/scoreMgr') }}"><i class="fa fa-btn fa-percent"></i>成绩管理</a></li>
                                     @can('manageUser')
-                                        <li><a><i class="fa fa-btn fa-users"></i>用户管理</a></li>
+                                        <li><a href="{{ url('admin/usersMgr') }}"><i class="fa fa-btn fa-users"></i>用户管理</a></li>
                                     @endcan
                                     <li><a href="{{ url('/admin/resources') }}"><i class="fa fa-btn fa-book"></i>资料库管理</a></li>
                                 @endcan

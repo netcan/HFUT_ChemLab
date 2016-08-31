@@ -29,6 +29,7 @@ Route::group(['middleware'=>['auth', 'manage'], 'namespace'=>'Admin', 'prefix'=>
     Route::put('papers/{pid}/edit/{qid}', 'PaperController@add_question');
     Route::delete('papers/{pid}/edit/{qid}', 'PaperController@delete_question');
     Route::resource('papers', 'PaperController');
+    Route::resource('usersMgr', 'UserController');
 
     Route::get('scoreMgr', 'PaperController@scoreIndex');
     Route::get('scoreMgr/{pid}', 'PaperController@listExaminees');

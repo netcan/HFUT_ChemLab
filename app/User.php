@@ -53,6 +53,13 @@ class User extends Authenticatable
         'teacher' => 1,
         'student' => 2
     ];
+
+    public static $typeName = [
+        '管理员',
+        '教师',
+        '学生'
+    ];
+
     public  function isAdmin() {
         return $this->type === User::$type['admin'];
     }
@@ -65,6 +72,7 @@ class User extends Authenticatable
     public function articles() {
         return $this->hasMany('App\Article', 'cid', 'id');
     }
+
     public function papers() {
         return $this->belongsToMany('App\Paper', 'user_paper', 'uid', 'pid')
             ->withPivot('start_time', 'end_time', 'score');
@@ -77,5 +85,9 @@ class User extends Authenticatable
     public function questions_pid() {
         return $this->belongsToMany('App\Question', 'user_question', 'uid', 'pid')
             ->withPivot('qid', 'ans');
+    }
+
+    public static function getType($type) {
+        return User::$typeName[$type];
     }
 }
