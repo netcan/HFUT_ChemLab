@@ -27,8 +27,13 @@
                                     <td>{{ $examinee->id }}</td>
                                     <td>{{ $examinee->name }}</td>
                                     <td>{{ $examinee->pivot->start_time }}</td>
-                                    <td>{{ $examinee->pivot->score }}/{{ $paper->full_score }}</td>
-                                    <td>{{ round($examinee->pivot->score*100 / $paper->full_score, 1) }}%</td>
+                                    @if($examinee->pivot->score == -1)
+                                        <td>考试中</td>
+                                        <td>考试中</td>
+                                    @else
+                                        <td>{{ $examinee->pivot->score }}/{{ $paper->full_score }}</td>
+                                        <td>{{ round($examinee->pivot->score*100 / $paper->full_score, 1) }}%</td>
+                                    @endif
                                     <td>
                                         <form class="reExam" action="{{ url('admin/scoreMgr/'.$paper->id.'/reExam/'.$examinee->id) }}" method="POST" style="display: inline;">
                                             {{ method_field('DELETE') }}

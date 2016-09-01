@@ -14,7 +14,7 @@
                             <thead>
                             <tr>
                                 <th>试卷名</th>
-                                <th>已考人数</th>
+                                <th>考试人数</th>
                                 <th>满分</th>
                                 <th>平均分</th>
                                 <th>动作</th>
@@ -24,7 +24,7 @@
                             @foreach($papers as $paper)
                                     <tr>
                                         <td>{{ $paper->title }}</td>
-                                        <td>{{ $paper->users()->where('score', '<>', -1)->count() }}</td>
+                                        <td>{{ $paper->users()->count() }}</td>
                                         <td>{{ $paper->full_score }}</td>
                                         <td>{{ round($paper->users()->where('score', '<>', -1)->avg('score') * 100 / $paper->full_score, 1) }}%</td>
                                         <td>

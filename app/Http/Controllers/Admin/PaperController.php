@@ -220,7 +220,7 @@ class PaperController extends Controller
 
     public function listExaminees($pid) {
         $paper = Paper::find($pid);
-        $examinees = $paper->users()->where('score', '<>', -1)->orderBy('score', 'desc')->paginate(10);
+        $examinees = $paper->users()->orderBy('score', 'desc')->paginate(10);
         return view('admin.scoreMgr.examinees', [
             'paper' => $paper,
             'examinees' => $examinees
