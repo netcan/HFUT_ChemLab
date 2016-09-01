@@ -43,6 +43,8 @@ Route::get('categories/{cid?}', 'Admin\CategoryController@list');
 
 
 Route::group(['middleware'=>'auth', 'prefix'=>'/'], function() {
+    Route::get('user/{id}/changePwd', 'Admin\UserController@changePwd');
+    Route::put('user/{id}/changePwd', 'Admin\UserController@updatePwd');
     Route::get('papers', 'Admin\PaperController@listPapers');
     Route::group(['prefix'=>'paper'], function () {
         Route::get('{id}', 'Admin\PaperController@exam');

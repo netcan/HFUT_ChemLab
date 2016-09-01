@@ -51,6 +51,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('user/'.Auth::user()->id.'/changePwd') }}"><i class="fa fa-lock"></i> 修改密码</a></li>
                                 @can('manage')
                                     <li><a href="{{ url('admin/questions') }}"><i class="fa fa-btn fa-pencil"></i>题库管理</a></li>
                                     <li><a href="{{ url('admin/papers') }}"><i class="fa fa-btn fa-newspaper-o"></i>试卷管理</a></li>
