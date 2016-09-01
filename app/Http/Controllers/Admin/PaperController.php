@@ -18,17 +18,30 @@ class PaperController extends Controller
     public function index() {
         return view('admin.papers.index', [
             'papers'=>Paper::with('questions')->paginate(10),
+
         ]);
     }
-    public function edit($id) {
+    public function edit(Request $request, $id) {
         $questions_added = [];
         foreach(Paper::find($id)->questions()->get() as $question)
             $questions_added[] = $question->id;
 
+        if($request->get('filter') == 'all' || $request->get('filter') == null)
+            $questions = Question::paginate(20);
+        else if($request->get('filter') == 'multi')
+            $questions = Question::where('type', 0)->paginate(20);
+        else
+            $questions = Question::where('type', 1)->paginate(20);
+
         return view('admin.papers.edit', [
             'paper' => Paper::find($id),
-            'questions'=>Question::paginate(10),
+            'questions'=>$questions,
             'questions_added' => $questions_added,
+            'questions_count' => [
+                'all' => Question::count(),
+                'multi' => Question::where('type', 0)->count(),
+                'judge' => Question::where('type', 1)->count()
+            ]
         ]);
     }
 

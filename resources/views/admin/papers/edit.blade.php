@@ -16,6 +16,7 @@
                             </div>
                         @endif
 
+
                         <form action="{{ url('/admin/papers/'.$paper->id) }}" method="POST" class="form-inline">
                             <div class="form-group">
                                 <label for="name">试卷名</label>
@@ -45,6 +46,11 @@
                             <button type="submit" class="btn btn-success">提交</button>
                             {!! csrf_field() !!}
                         </form>
+
+                            <br>
+                            <a href="?filter=multi" class="btn btn-info">单选题 <span class="badge">{{ $questions_count['multi'] }}</span></a>
+                            <a href="?filter=judge" class="btn btn-info">判断题 <span class="badge">{{ $questions_count['judge'] }}</span></a>
+
                         <table class="table table-striped">
                             <thead>
                             <tr>
@@ -70,7 +76,10 @@
                             </tbody>
                         </table>
                         <div class="text-center">
-                            {{ $questions->links() }}
+                            {{ $questions->appends([
+                                    'filter' => Request::get('filter'),
+                                ])
+                            ->links() }}
                         </div>
 
                     </div>

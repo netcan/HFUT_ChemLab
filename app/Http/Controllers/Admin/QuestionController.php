@@ -20,11 +20,11 @@ class QuestionController extends Controller
 
     public function index(Request $request) {
         if($request->get('filter') == 'all' || $request->get('filter') == null)
-            $questions = Question::paginate(10);
+            $questions = Question::paginate(20);
         else if($request->get('filter') == 'multi')
-            $questions = Question::where('type', 0)->paginate(10);
+            $questions = Question::where('type', 0)->paginate(20);
         else
-            $questions = Question::where('type', 1)->paginate(10);
+            $questions = Question::where('type', 1)->paginate(20);
 
         return view('admin.questions.index', [
             'questions' => $questions,
