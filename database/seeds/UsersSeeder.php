@@ -24,18 +24,11 @@ class UsersSeeder extends Seeder
             'type'=>'1',
             'password'=>bcrypt('123456'),
         ]);
-        User::create([
-            'uid'=>'2014218702',
-            'name'=>'马甲',
-            'type'=>'2',
-            'password'=>bcrypt('123456'),
-        ]);
-        User::create([
-            'uid'=>'2014218703',
-            'name'=>'马甲2',
-            'type'=>'2',
-            'password'=>bcrypt('123456'),
-        ]);
-        //
+//        User::chunk(100, function($users) {
+//            foreach ($users as $user) {
+//                $user->password = bcrypt($user->password);
+//                $user->save();
+//            }
+//        });
     }
 }
