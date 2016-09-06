@@ -140,6 +140,14 @@
                                         setInterval(remainTime, 1000);
                                     </script>
                                 @endif
+                                <script>
+                                    $(document).ready(function() {
+                                        $('body').bind('copy cut paste', function(e) {
+                                            e.preventDefault();
+                                            toastr.warning('禁止复制！');
+                                        });
+                                    });
+                                </script>
                             @endcannot
                         </form>
                     </div>
