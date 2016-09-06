@@ -194,7 +194,7 @@ class PaperController extends Controller
 
         foreach ($paper->questions()->get() as $question) {
             $ans = $request->get('question'.$question->id);
-            if(isset($ans) && $ans != null) {
+            if($request->has('question'.$question->id)) {
                 if ($ans == $question->ans)
                     $score += $scoreValue[$question->type];
                 $user->questions()->sync([$question->id => [
@@ -216,6 +216,28 @@ class PaperController extends Controller
         return redirect('/papers');
     }
 
+    public function updateScores($pid) {
+        $paper = Paper::find($pid);
+        $users = $paper->users()->get();
+        $scoreValue = [ $paper->multi_score, $paper->judge_score ];
+
+        foreach ($users as $user) {
+            $score = 0;
+            if($user->papers()->find($pid)->pivot->score == -1)
+                continue;
+
+            foreach ($paper->questions()->get() as $question) {
+                if($question->ans == $user->questions()->wherePivot('pid', $pid)->find($question->id)->pivot->ans) {
+                    var_dump($score);
+                    $score += $scoreValue[$question->type];
+                }
+            }
+            $user->papers()->updateExistingPivot($pid, [
+                'score'=>$score
+            ]);
+        }
+        return redirect()->back();
+    }
 
     public function listPapers() {
         $papers = Paper::where('full_score', '<>', 0)->orderBy('created_at', 'desc')->paginate(10);

@@ -33,6 +33,7 @@ Route::group(['middleware'=>['auth', 'manage'], 'namespace'=>'Admin', 'prefix'=>
 
     Route::get('scoreMgr', 'PaperController@scoreIndex');
     Route::get('scoreMgr/{pid}', 'PaperController@listExaminees');
+    Route::put('scoreMgr/updateScores/{pid}', 'PaperController@updateScores');
     Route::delete('scoreMgr/{pid}/reExam/{uid}', 'PaperController@reExam');
 });
 

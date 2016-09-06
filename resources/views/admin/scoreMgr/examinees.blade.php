@@ -10,6 +10,11 @@
                         <a href="{{ url('admin/scoreMgr') }}">成绩管理（{{ $paper->title }}）</a> > 考生管理
                     </div>
                     <div class="panel-body">
+                        <form action="updateScores/{{ $paper->id }}" method="POST">
+                            {{ csrf_field() }}
+                            {{ method_field('PUT') }}
+                            <button type="submit" class="btn btn-warning">更新考生成绩</button>
+                        </form>
                         <table class="table table-striped">
                             <thead>
                             <tr>
@@ -24,7 +29,7 @@
                             <tbody>
                             @foreach($examinees as $examinee)
                                 <tr>
-                                    <td>{{ $examinee->id }}</td>
+                                    <td>{{ $examinee->uid }}</td>
                                     <td>{{ $examinee->name }}</td>
                                     <td>{{ $examinee->pivot->start_time }}</td>
                                     @if($examinee->pivot->score == -1)
