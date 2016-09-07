@@ -15,7 +15,7 @@
             <div class="panel panel-info">
                 <div class="panel-heading"><i class="fa fa-info"></i> 系统提示</div>
                 <div class="panel-body">
-                    {!! $data['systeminfo']->content !!}
+                    {!! $data['systeminfo'] && $data['systeminfo']->content !!}
                 </div>
             </div>
         </div>
