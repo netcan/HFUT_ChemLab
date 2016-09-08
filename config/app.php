@@ -160,6 +160,7 @@ return [
 		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         'Barryvdh\Elfinder\ElfinderServiceProvider',
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
+        Spatie\Backup\BackupServiceProvider::class,
     ],
 
     /*
