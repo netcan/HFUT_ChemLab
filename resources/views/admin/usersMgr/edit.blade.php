@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="password">重置密码</label>
-                                    <input type="password" class="form-control" placeholder="需要重置密码请填写密码..." name="password" id="password" value="{{ old('password') }}">
+                                    <input type="password" class="form-control" placeholder="需要重置密码请填写密码..." name="password" id="password" value="">
                                 </div>
 
                                 <div class="text-right">
