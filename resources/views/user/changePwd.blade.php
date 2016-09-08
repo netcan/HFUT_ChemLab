@@ -6,7 +6,7 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a href="{{ url('admin/usersMgr') }}">用户管理</a> > 编辑用户信息
+                        修改密码
                     </div>
                     <div class="panel-body">
                         @if (count($errors) > 0)
@@ -18,11 +18,11 @@
                         <form action="{{ url('user/'.$user->id.'/changePwd') }}" method="POST">
                             <div class="form-group">
                                 <label for="password">密码</label>
-                                <input type="password" class="form-control" placeholder="需要重置密码请填写密码..." name="password" id="password" value="{{ old('password') }}">
+                                <input type="password" class="form-control" placeholder="输入密码..." name="password" id="password" value="">
                             </div>
                             <div class="form-group">
                                 <label for="password-confirm">确认密码</label>
-                                <input type="password" class="form-control" placeholder="需要重置密码请填写密码..." name="password_confirmation" id="password-confirm" value="{{ old('password') }}">
+                                <input type="password" class="form-control" placeholder="确认密码..." name="password_confirmation" id="password-confirm" value="">
                             </div>
 
                             <div class="text-right">
