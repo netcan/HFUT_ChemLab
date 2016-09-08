@@ -15,7 +15,7 @@
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->
@@ -60,6 +60,10 @@
                                         <li><a href="{{ url('admin/usersMgr') }}"><i class="fa fa-btn fa-users"></i>用户管理</a></li>
                                     @endcan
                                     <li><a href="{{ url('/admin/resources') }}"><i class="fa fa-btn fa-book"></i>资料库管理</a></li>
+
+                                    @can('manageUser')
+                                        <li><a href="{{ url('admin/logs') }}"><i class="fa fa-btn fa-calendar"></i>查看日志</a></li>
+                                    @endcan
                                 @endcan
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>

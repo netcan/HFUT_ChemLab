@@ -6,9 +6,9 @@
     <title>elFinder 2.0</title>
 
     <!-- jQuery and jQuery UI (REQUIRED) -->
-    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <link href="http://cdn.bootcss.com/jqueryui/1.12.0/jquery-ui.min.css" rel="stylesheet">
-    <script src="http://cdn.bootcss.com/jqueryui/1.12.0/jquery-ui.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <link href="/css/jquery-ui.min.css" rel="stylesheet">
+    <script src="/js/jquery-ui.min.js"></script>
 
     <!-- elFinder CSS (REQUIRED) -->
     <link rel="stylesheet" type="text/css" href="<?= asset($dir.'/css/elfinder.min.css') ?>">

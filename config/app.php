@@ -159,6 +159,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         'Barryvdh\Elfinder\ElfinderServiceProvider',
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
     ],
 
     /*

@@ -35,6 +35,8 @@ Route::group(['middleware'=>['auth', 'manage'], 'namespace'=>'Admin', 'prefix'=>
     Route::get('scoreMgr/{pid}', 'PaperController@listExaminees');
     Route::put('scoreMgr/updateScores/{pid}', 'PaperController@updateScores');
     Route::delete('scoreMgr/{pid}/reExam/{uid}', 'PaperController@reExam');
+
+    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 });
 
 Route::resource('article', Admin\ArticleController::class, ['except' => [

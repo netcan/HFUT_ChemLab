@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "barryvdh/laravel-ide-helper": "^2.2",
         "doctrine/dbal": "^2.5",
-        "barryvdh/laravel-elfinder": "^0.3.7"
+        "barryvdh/laravel-elfinder": "^0.3.7",
+        "rap2hpoutre/laravel-log-viewer": "^0.7.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
