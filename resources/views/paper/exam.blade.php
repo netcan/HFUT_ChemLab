@@ -50,6 +50,7 @@
                                         @can('manage')
                                                 <script>
                                                     $('#question{{ $question->id }}').val({{ $question->ans }})
+                                                    $('#question{{ $question->id }}').attr('disabled', 'disabled');
                                                 </script>
                                         @else
                                             @if($user_paper->pivot->score != -1)
@@ -65,6 +66,7 @@
                                                 @endif
                                                 <script>
                                                     $('#question{{ $question->id }}').val({{ $yourAns }})
+                                                    $('#question{{ $question->id }}').attr('disabled', 'disabled');
                                                 </script>
                                             @endif
                                         @endcan
@@ -88,7 +90,9 @@
 
                                         @can('manage')
                                             <script>
+                                                $('input:radio[name=question{{ $question->id }}]').attr('disabled', 'disabled');
                                                 $('input:radio[name=question{{ $question->id }}]').filter('[value={{ $question->ans }}]').prop('checked', true);
+                                                $('input:radio[name=question{{ $question->id }}]').filter('[value={{ $question->ans }}]').prop('disabled', false);
                                             </script>
                                         @else
                                             @if($user_paper->pivot->score != -1)
@@ -105,7 +109,9 @@
                                                 @endif
 
                                                 <script>
+                                                    $('input:radio[name=question{{ $question->id }}]').attr('disabled', 'disabled');
                                                     $('input:radio[name=question{{ $question->id }}]').filter('[value={{ $yourAns }}]').prop('checked', true);
+                                                    $('input:radio[name=question{{ $question->id }}]').filter('[value={{ $yourAns }}]').prop('disabled', false);
                                                 </script>
                                             @endif
                                         @endcan
