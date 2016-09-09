@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
-                <h3><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Laravel Log Viewer</h3>
+                <h3><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>查看日志</h3>
                 <div class="list-group">
                     @foreach($files as $file)
                         <a href="?l={{ base64_encode($file) }}" class="list-group-item @if ($current_file == $file) llv-active @endif">

@@ -63,6 +63,7 @@
 
                                     @can('manageUser')
                                         <li><a href="{{ url('admin/logs') }}"><i class="fa fa-btn fa-calendar"></i>查看日志</a></li>
+                                        <li><a href="{{ url('admin/stats') }}" target="_blank"><i class="fa fa-btn fa-briefcase"></i>使用统计</a></li>
                                     @endcan
                                 @endcan
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>

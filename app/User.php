@@ -60,6 +60,11 @@ class User extends Authenticatable
         '学生'
     ];
 
+    public function getIsAdminAttribute()
+    {
+        return $this->isAdmin();
+    }
+
     public  function isAdmin() {
         return $this->type === User::$type['admin'];
     }
