@@ -148,6 +148,7 @@
                             <div class="text-center">
                                 {{ $questions->appends([
                                     'filter' => Request::get('filter'),
+                                    'query' => Request::get('query'),
                                 ])
                                 ->links() }}
                             </div>
