@@ -18,9 +18,13 @@
 
                         <button class="btn btn-block btn-success btn-lg" id="add-question">添加题目</button>
                             <br>
-                            <a href="?filter=all" class="btn btn-primary">显示全部 <span class="badge">{{ $questions_count['all'] }}</span></a>
-                            <a href="?filter=multi" class="btn btn-info">单选题 <span class="badge">{{ $questions_count['multi'] }}</span></a>
-                            <a href="?filter=judge" class="btn btn-info">判断题 <span class="badge">{{ $questions_count['judge'] }}</span></a>
+                            <form action="questions" class="form-inline">
+                                <a href="?filter=all" class="btn btn-primary">显示全部 <span class="badge">{{ $questions_count['all'] }}</span></a>
+                                <a href="?filter=multi" class="btn btn-info">单选题 <span class="badge">{{ $questions_count['multi'] }}</span></a>
+                                <a href="?filter=judge" class="btn btn-info">判断题 <span class="badge">{{ $questions_count['judge'] }}</span></a>
+                                <input type="text" class="form-control" placeholder="搜索题目..." name="query">
+                                <button type="submit" class="btn btn-primary">搜索</button>
+                            </form>
                         <table class="table table-striped">
                             <thead>
                             <tr>
@@ -78,7 +82,7 @@
                                                     <div class="row">
                                                         <label for="qcontent" class="control-label col-sm-2">题目</label>
                                                         <div class="col-sm-10">
-                                                            <input type="text" id="qcontent" name="qcontent" class="form-control" required="required" placeholder="请输入题目内容">
+                                                            <textarea id="qcontent" name="qcontent" class="form-control" required="required" placeholder="请输入题目内容"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>

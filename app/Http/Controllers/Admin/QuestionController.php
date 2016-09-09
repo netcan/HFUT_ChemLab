@@ -19,7 +19,9 @@ class QuestionController extends Controller
     }
 
     public function index(Request $request) {
-        if($request->get('filter') == 'all' || $request->get('filter') == null)
+        if($request->has('query'))
+            $questions = Question::where('content', 'like', '%'.$request->get('query').'%')->paginate(20);
+        else if($request->get('filter') == 'all' || $request->get('filter') == null)
             $questions = Question::paginate(20);
         else if($request->get('filter') == 'multi')
             $questions = Question::where('type', 0)->paginate(20);

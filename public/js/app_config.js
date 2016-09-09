@@ -2,7 +2,7 @@
 'use strict';
 
 tinymce.init({
-    selector: 'textarea',
+    selector: '.editor',
     height: 360,
     language: 'zh_CN',
     file_browser_callback: elFinderBrowser,

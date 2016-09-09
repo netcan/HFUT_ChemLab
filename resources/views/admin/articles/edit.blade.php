@@ -20,7 +20,7 @@
                                 {!! csrf_field() !!}
                                 <input type="text" name="title" class="form-control" required="required" placeholder="请输入标题" value="{{  $data['article']->title }}">
                                 <br>
-                                <textarea name="content" rows="10" class="form-control" required="required" placeholder="请输入内容">{!! $data['article']->content !!}</textarea>
+                                <textarea name="content" rows="10" class="form-control editor" required="required" placeholder="请输入内容">{!! $data['article']->content !!}</textarea>
                                 <br>
                                 <div class="text-right">
                                     <select class="form-control" name="category">
