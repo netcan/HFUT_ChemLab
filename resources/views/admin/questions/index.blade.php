@@ -82,7 +82,7 @@
                                                     <div class="row">
                                                         <label for="qcontent" class="control-label col-sm-2">题目</label>
                                                         <div class="col-sm-10">
-                                                            <textarea id="qcontent" name="qcontent" class="form-control" required="required" placeholder="请输入题目内容"></textarea>
+                                                            <textarea id="qcontent" name="qcontent" class="form-control" required="required" placeholder="请输入题目内容" rows="6"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
