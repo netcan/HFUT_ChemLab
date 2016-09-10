@@ -18,13 +18,16 @@
                             @if($user_paper->pivot->score == -1)
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="progress col-md-10">
-                                            <div id="remainProgBar" class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0">
+                                        <div class="col-md-10">
+                                            <div class="progress">
+                                                <div id="remainProgBar" class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="alert alert-success">
                                                 <strong>剩余时间</strong>
+                                                <br>
                                                 <span id="remainTime"></span>
                                             </div>
                                         </div>
@@ -137,7 +140,7 @@
                                 @if($user_paper->pivot->score == -1)
                                     <div class="text-right">
                                         {{ csrf_field() }}
-                                        <button type="submit" class="btn btn-primary btn-raised">交卷</button>
+                                        <button id="examSubmit" type="submit" class="btn btn-primary btn-raised">交卷</button>
                                     </div>
                                     <script>
                                         // exam
@@ -159,6 +162,10 @@
                                             });
                                         }
                                         setInterval(remainTime, 1000);
+
+                                        $('#exam').on("click", function () {
+                                            return confirm('你确定要交卷？');
+                                        });
                                     </script>
                                 @endif
                                 <script>
