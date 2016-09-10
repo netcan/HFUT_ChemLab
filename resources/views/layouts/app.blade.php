@@ -10,6 +10,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-material-design.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/ripples.min.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}"></script>
 
 </head>
@@ -28,7 +30,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <strong style="font-size: 20px;">合肥工业大学</strong> 化学实验室安全教育及在线考试系统
+                    <strong style="font-size: 20px;">合肥工业大学</strong> 化学实验室安全教育与考试系统
                 </a>
             </div>
 
@@ -79,6 +81,11 @@
     <!-- JavaScripts -->
     <script src="/js/tinymce/tinymce.min.js"></script>
     <script src="{{ asset('js/app_config.js') }}"></script>
+    <script src="{{ asset('js/material.min.js') }}"></script>
+    <script src="{{ asset('js/ripples.min.js') }}"></script>
+    <script>
+        $.material.init();
+    </script>
 
 </body>
 </html>

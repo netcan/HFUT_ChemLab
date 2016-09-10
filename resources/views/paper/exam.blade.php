@@ -16,8 +16,18 @@
                     <div class="panel-body">
                         @cannot('manage')
                             @if($user_paper->pivot->score == -1)
-                                <div class="progress">
-                                    <div  id="remainTime" class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="progress col-md-10">
+                                            <div id="remainProgBar" class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="alert alert-success">
+                                                <strong>剩余时间</strong>
+                                                <span id="remainTime"></span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             @else
@@ -42,11 +52,13 @@
                                 @foreach($paper->questions()->where('type', 1)->inRandomOrder()->get() as $question)
                                     <li>
                                         {{ $question->content }}
-                                        （<select id='question{{ $question->id }}' name='question{{ $question->id }}' class="form-control">
+                                        （<div class="form-group question-selection">
+                                        <select id='question{{ $question->id }}' name='question{{ $question->id }}' class="form-control">
                                             <option value="">请选择</option>
-                                            <option value="0">正确</option>
-                                            <option value="1">错误</option>
-                                        </select>）
+                                            <option value="0">&nbsp;正确&nbsp;</option>
+                                            <option value="1">&nbsp;错误&nbsp;</option>
+                                        </select>
+                                        </div>）
                                         @can('manage')
                                                 <script>
                                                     $('#question{{ $question->id }}').val({{ $question->ans }})
@@ -77,7 +89,7 @@
                             <ol>
                                 @foreach($paper->questions()->where('type', 0)->inRandomOrder()->get() as $question)
                                     <li>
-                                    {{ $question->content }}<br>
+                                    <p>{{ $question->content }}</p>
                                         @php
                                             $order = ['A', 'B', 'C', 'D'];
                                             $disorder = collect($order)->shuffle()->all();
@@ -85,7 +97,10 @@
                                         @endphp
 
                                         @for($i=0; $i<4; ++$i)
-                                        <input type="radio" name="question{{ $question->id }}" value="{{ array_search($disorder[$i], $order) }}"> {{ $order[$i] }}. {{ $selections[$disorder[$i]] }}<br>
+                                                <label class="radio radio-inline question-multi">
+                                                    <input type="radio" name="question{{ $question->id }}" value="{{ array_search($disorder[$i], $order) }}"> {{ $order[$i] }}. {{ $selections[$disorder[$i]] }}
+                                                </label>
+                                            <br>
                                         @endfor
 
                                         @can('manage')
@@ -122,7 +137,7 @@
                                 @if($user_paper->pivot->score == -1)
                                     <div class="text-right">
                                         {{ csrf_field() }}
-                                        <button type="submit" class="btn btn-primary">交卷</button>
+                                        <button type="submit" class="btn btn-primary btn-raised">交卷</button>
                                     </div>
                                     <script>
                                         // exam
@@ -139,7 +154,7 @@
                                                     submitted = true;
                                                 }
 
-                                                $('#remainTime').css('width', data.percent);
+                                                $('#remainProgBar').css('width', data.percent);
                                                 $('#remainTime').text('剩余时间：'+data.remainTime_Minute+'分钟');
                                             });
                                         }

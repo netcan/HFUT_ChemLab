@@ -30,11 +30,15 @@ elixir(function(mix) {
         'node_modules/jquery/dist/jquery.min.js',
         'node_modules/jquery-ui-dist/jquery-ui.min.js',
         'node_modules/datatables.net/js/jquery.dataTables.js',
-        'node_modules/datatables.net-bs/js/dataTables.bootstrap.js'
+        'node_modules/datatables.net-bs/js/dataTables.bootstrap.js',
+        'node_modules/bootstrap-material-design/dist/js/material.min.js',
+        'node_modules/bootstrap-material-design/dist/js/ripples.min.js'
         ], 'public/js');
     mix.copy([
         'node_modules/jquery-ui-dist/jquery-ui.min.css',
-        'node_modules/datatables.net-bs/css/dataTables.bootstrap.css'
+        'node_modules/datatables.net-bs/css/dataTables.bootstrap.css',
+        'node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.min.css',
+        'node_modules/bootstrap-material-design/dist/css/ripples.min.css'
     ], 'public/css');
 
     mix.copy('node_modules/jquery-ui-dist/images', 'public/css/images');
