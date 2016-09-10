@@ -15,7 +15,7 @@
                                 {!! implode('<br>', $errors->all()) !!}
                             </div>
                         @endif
-                        <a href="categories/create" class="btn btn-block btn-success btn-lg">添加分类</a>
+                        <a href="categories/create" class="btn btn-block btn-success btn-lg btn-raised">添加分类</a>
                         <table class="table table-striped">
                             <thead>
                             <tr>
@@ -27,17 +27,17 @@
                             <tbody>
                             @foreach($categories as $category)
                                 <tr>
-                                    <td><a class="btn btn-primary" href="{{ url('/admin/resources/articles/?cid='.$category->id) }}">{{ $category->name }} <span class="badge">{{ $category->articles_count }}</span></a></td>
-                                    <td><a class="btn btn-info" href="categories/{{ $category->id }}/edit">编辑</a></td>
+                                    <td><a class="btn btn-primary btn-raised" href="{{ url('/admin/resources/articles/?cid='.$category->id) }}">{{ $category->name }} <span class="badge">{{ $category->articles_count }}</span></a></td>
+                                    <td><a class="btn btn-info btn-raised" href="categories/{{ $category->id }}/edit">编辑</a></td>
                                     <td>
                                         @if($category->articles_count == 0)
                                             <form class="delete" action="categories/{{ $category->id }}" method="POST" style="display: inline;">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <input type="submit" class="btn btn-danger" value="删除"/>
+                                                <input type="submit" class="btn btn-danger btn-raised" value="删除"/>
                                             </form>
                                         @else
-                                            <button disabled class="btn">删除</button>
+                                            <button disabled class="btn btn-raised">删除</button>
                                         @endif
                                     </td>
                                 </tr>

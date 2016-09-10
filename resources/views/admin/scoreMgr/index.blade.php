@@ -28,7 +28,7 @@
                                         <td>{{ $paper->full_score }}</td>
                                         <td>{{ round($paper->users()->where('score', '<>', -1)->avg('score') * 100 / $paper->full_score, 1) }}%</td>
                                         <td>
-                                            <a href="{{ url('admin/scoreMgr/'.$paper->id) }}" class="btn btn-primary">查看</a>
+                                            <a href="{{ url('admin/scoreMgr/'.$paper->id) }}" class="btn btn-primary btn-raised">查看</a>
                                         </td>
                                     </tr>
                             @endforeach

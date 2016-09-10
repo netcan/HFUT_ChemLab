@@ -29,7 +29,7 @@
                                             <option value="{{ $category->id }}" {{ $data['article']->cid == $category->id?'selected':'' }}>{{ $category->name }}</option>
                                         @endforeach
                                     </select>
-                                    <button class="btn btn-info" type="submit">更新</button>
+                                    <button class="btn btn-info btn-raised" type="submit">更新</button>
                                 </div>
                             </form>
                     </div>

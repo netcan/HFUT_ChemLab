@@ -43,7 +43,7 @@
 
                                 <div class="text-right">
                                     {!! csrf_field() !!}
-                                    <button class="btn btn-info" type="submit">新建</button>
+                                    <button class="btn btn-info btn-raised" type="submit">新建</button>
                                 </div>
                             </form>
                         <script>

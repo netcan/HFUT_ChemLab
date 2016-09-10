@@ -12948,8 +12948,8 @@ $(document).ready(function () {
     });
 
     $('body').on('click', '.delete-question', function () {
-        var qid = $('.delete-question').val();
-        toastr.warning('你确定要删除？<br><button class="btn btn-warning" id="delete-question-sure">确定</button>');
+        var qid = $(this).val();
+        toastr.warning('你确定要删除？<br><button class="btn btn-info btn-raised btn-raised" id="delete-question-sure">确定</button>');
         $('#delete-question-sure').click(function () {
             $.ajax({
                 url: qurl + qid,
@@ -13032,7 +13032,7 @@ $(document).ready(function () {
             success: function success(data) {
                 console.log(data);
 
-                var question = '<tr id="question' + data.id + '">' + '<td>' + (data.type == 0 ? "单选" : "判断") + '</td>' + '<td>' + data.content + '</td>' + '<td>' + data.A + '</td>' + '<td>' + data.B + '</td>' + '<td>' + data.C + '</td>' + '<td>' + data.D + '</td>' + '<td>' + getAns(data.type, data.ans) + '</td>' + '<td><button class="btn btn-info edit-question" value="' + data.id + '">修改</button> ' + '<button class="btn btn-warning delete-question" value="' + data.id + '">删除</button>' + '</td>' + '</tr>';
+                var question = '<tr id="question' + data.id + '">' + '<td>' + (data.type == 0 ? "单选" : "判断") + '</td>' + '<td>' + data.content + '</td>' + '<td>' + data.A + '</td>' + '<td>' + data.B + '</td>' + '<td>' + data.C + '</td>' + '<td>' + data.D + '</td>' + '<td>' + getAns(data.type, data.ans) + '</td>' + '<td><button class="btn btn-info edit-question btn-raised" value="' + data.id + '">修改</button> ' + '<button class="btn btn-warning delete-question btn-raised" value="' + data.id + '">删除</button>' + '</td>' + '</tr>';
                 console.log(question);
 
                 if ($('#qsave').val() == 'update') {
@@ -13070,7 +13070,7 @@ $(document).ready(function () {
                 type: 'put',
                 url: purl + qid,
                 success: function success(data) {
-                    button.attr('class', 'btn btn-warning paper-question-action');
+                    button.attr('class', 'btn btn-warning paper-question-action btn-raised');
                     button.text('移除');
                     console.log(data);
                     toastr.success('添加成功');
@@ -13092,7 +13092,7 @@ $(document).ready(function () {
                 type: 'delete',
                 url: purl + qid,
                 success: function success(data) {
-                    button.attr('class', 'btn btn-info paper-question-action');
+                    button.attr('class', 'btn btn-info paper-question-action btn-raised');
                     button.text('添加');
                     console.log(data);
                     toastr.warning('移除成功');

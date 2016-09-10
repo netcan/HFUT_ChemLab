@@ -40,7 +40,7 @@
                                 <label for="end_time">结束时间</label>
                                 <input type="datetime-local" class="form-control" name="end_time" id="end_time" placeholder="结束时间" value="{{ old('end_time', \Carbon\Carbon::create(2099,12,31,0,0)->format('Y-m-d\TH:i')) }}">
                             </div>
-                            <button type="submit" class="btn btn-success">提交</button>
+                            <button type="submit" class="btn btn-success btn-raised">提交</button>
                             {!! csrf_field() !!}
                         </form>
 

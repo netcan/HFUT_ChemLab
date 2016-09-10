@@ -28,7 +28,7 @@
                             <div class="text-right">
                                 {!! csrf_field() !!}
                                 {{ method_field('PUT') }}
-                                <button class="btn btn-info" type="submit">提交</button>
+                                <button class="btn btn-info btn-raised" type="submit">提交</button>
                             </div>
                         </form>
                     </div>

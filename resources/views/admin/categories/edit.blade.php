@@ -22,7 +22,7 @@
                             <input type="text" name="name" class="form-control" required="required" placeholder="请输入分类名" value="{{ $category->name }}">
                             <br>
                             <div class="text-right">
-                                <button class="btn btn-lg btn-info">编辑分类</button>
+                                <button class="btn btn-lg btn-info btn-raised">编辑分类</button>
                             </div>
                         </form>
                     </div>

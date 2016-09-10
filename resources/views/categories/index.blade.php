@@ -9,9 +9,9 @@
                         {{ $categoryName }}
                     </div>
                     <div class="panel-body">
-                        <a class="btn btn-success" href="{{ url('categories/') }}">显示全部 <span class="badge">{{ $articles_count }}</span></a>
+                        <a class="btn btn-success btn-raised" href="{{ url('categories/') }}">显示全部 <span class="badge">{{ $articles_count }}</span></a>
                         @foreach($categories as $category)
-                            <a class="btn btn-info" href="{{ url('categories/'.$category->id) }}">{{ $category->name }} <span class="badge">{{ $category->articles_count }}</span></a>
+                            <a class="btn btn-info btn-raised" href="{{ url('categories/'.$category->id) }}">{{ $category->name }} <span class="badge">{{ $category->articles_count }}</span></a>
                         @endforeach
                         <br><br>
                         <ul class="list-unstyled">

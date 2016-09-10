@@ -10,7 +10,7 @@
                         用户管理
                     </div>
                     <div class="panel-body">
-                        <a href="{{ url('admin/usersMgr/create') }}" class="btn btn-block btn-success btn-lg">添加用户</a>
+                        <a href="{{ url('admin/usersMgr/create') }}" class="btn btn-block btn-success btn-lg btn-raised">添加用户</a>
                         @if (count($errors) > 0)
                             <div class="alert alert-danger">
                                 <strong>操作失败</strong><br><br>
@@ -33,11 +33,11 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ \App\User::getType($user->type) }}</td>
                                     <td>
-                                        <a class="btn btn-primary" href="{{ url('admin/usersMgr/'.$user->id.'/edit') }}">编辑</a>
+                                        <a class="btn btn-primary btn-raised" href="{{ url('admin/usersMgr/'.$user->id.'/edit') }}">编辑</a>
                                         <form class="delete" action="{{ url('/admin/usersMgr/'.$user->id) }}" method="POST" style="display: inline;">
                                             {{ method_field('DELETE') }}
                                             {{ csrf_field() }}
-                                            <input type="submit" class="btn btn-danger" value="删除"/>
+                                            <input type="submit" class="btn btn-danger btn-raised" value="删除"/>
                                         </form>
                                     </td>
                                 </tr>

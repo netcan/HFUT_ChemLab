@@ -15,11 +15,11 @@
                                 {!! implode('<br>', $errors->all()) !!}
                             </div>
                         @endif
-                        <a href="{{ url('article/create') }}" class="btn btn-block btn-success btn-lg">添加文章</a>
+                        <a href="{{ url('article/create') }}" class="btn btn-block btn-success btn-lg btn-raised">添加文章</a>
                             <br>
-                            <a href="?filter=all" class="btn btn-info">显示全部 <span class="badge">{{ $articles_count }}</span></a>
-                            <a href="?filter" class="btn btn-info">显示我的 <span class="badge">{{ $myArticles_count }}</span></a>
-                            <a href="{{ url('admin/resources/categories') }}" class="btn btn-info">分类管理 <span class="badge"> {{ $categories_count }} </span></a>
+                            <a href="?filter=all" class="btn btn-info btn-raised">显示全部 <span class="badge">{{ $articles_count }}</span></a>
+                            <a href="?filter" class="btn btn-info btn-raised">显示我的 <span class="badge">{{ $myArticles_count }}</span></a>
+                            <a href="{{ url('admin/resources/categories') }}" class="btn btn-info btn-raised">分类管理 <span class="badge"> {{ $categories_count }} </span></a>
 
                         <table class="table table-striped">
                             <thead>
@@ -40,17 +40,17 @@
                                     <td class="text-center"><a href="?cid={{ $article->cid }}">{{ $article->category->name }}</a></td>
                                     <td class="text-center">{{ $article->created_at }}</td>
                                     @can('opArticle', $article)
-                                    <td class="text-center"><a class="btn btn-primary" href="{{ url('/article/'.$article->id.'/edit') }}">编辑</a></td>
+                                    <td class="text-center"><a class="btn btn-primary btn-raised" href="{{ url('/article/'.$article->id.'/edit') }}">编辑</a></td>
                                     <td class="text-center">
                                         <form class="delete" action="{{ url('/article/'.$article->id) }}" method="POST" style="display: inline;">
                                             {{ method_field('DELETE') }}
                                             {{ csrf_field() }}
-                                            <input type="submit" class="btn btn-danger" value="删除"/>
+                                            <input type="submit" class="btn btn-danger btn-raised" value="删除"/>
                                         </form>
                                     </td>
                                     @else
-                                        <td class="text-center"><button class="btn"  disabled="disabled">编辑</button></td>
-                                        <td class="text-center"><button class="btn"  disabled="disabled">删除</button></td>
+                                        <td class="text-center"><button class="btn btn-raised"  disabled="disabled">编辑</button></td>
+                                        <td class="text-center"><button class="btn btn-raised"  disabled="disabled">删除</button></td>
                                     @endcan
                                 </tr>
                             @endforeach

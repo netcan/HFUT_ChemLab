@@ -15,8 +15,8 @@ elixir(function(mix) {
     mix.sass([
         'app.scss'
     ]).browserify([
-        'app.js',
-    ], 'public/js/');
+        'app.js'
+    ], 'public/js/app.js');
 
     mix.browserify('app_config.js', 'public/js/app_config.js');
 

@@ -28,7 +28,7 @@
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
-                                    <button class="btn btn-info" type="submit">新建</button>
+                                    <button class="btn btn-info btn-raised" type="submit">新建</button>
 
                                 </div>
                             </form>

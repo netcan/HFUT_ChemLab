@@ -16,7 +16,7 @@
                                 {!! implode('<br>', $errors->all()) !!}
                             </div>
                         @endif
-                        <a href="papers/create" class="btn btn-block btn-success btn-lg">添加试卷</a>
+                        <a href="papers/create" class="btn btn-block btn-success btn-lg btn-raised">添加试卷</a>
                         <table class="table table-striped">
                             <thead>
                             <tr>
@@ -41,12 +41,12 @@
                                     <td>{{ $paper->start_time }}</td>
                                     <td>{{ $paper->end_time }}</td>
                                     <td>
-                                        <a href="papers/{{ $paper->id }}/edit" class="btn btn-info">编辑</a>
+                                        <a href="papers/{{ $paper->id }}/edit" class="btn btn-info btn-raised">编辑</a>
 
                                         <form class="delete" action="{{ url('/admin/papers/'.$paper->id) }}" method="POST" style="display: inline;">
                                             {!! csrf_field() !!}
                                             {{ method_field('DELETE') }}
-                                            <input type="submit" class="btn btn-danger" value="删除"/>
+                                            <input type="submit" class="btn btn-danger btn-raised" value="删除"/>
                                         </form>
                                     </td>
                                 </tr>

@@ -35,12 +35,12 @@
                                         <td>{{ $paper->end_time }}</td>
                                         <td>
                                             @can('manage')
-                                                <a href="paper/{{ $paper->id }}" class="btn btn-info">浏览试卷</a>
+                                                <a href="paper/{{ $paper->id }}" class="btn btn-info btn-raised">浏览试卷</a>
                                             @else
                                                 @if(!auth()->user()->papers()->find($paper->id) || auth()->user()->papers()->find($paper->id)->pivot->score == -1)
-                                                    <a href="paper/{{ $paper->id }}" class="btn btn-primary">开始考试</a>
+                                                    <a href="paper/{{ $paper->id }}" class="btn btn-primary btn-raised">开始考试</a>
                                                 @else
-                                                    <a href="paper/{{ $paper->id }}" class="btn btn-info">答题结果</a>
+                                                    <a href="paper/{{ $paper->id }}" class="btn btn-info btn-raised">答题结果</a>
                                                 @endif
                                             @endcan
 

@@ -13,7 +13,7 @@
                         <form action="updateScores/{{ $paper->id }}" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
-                            <button type="submit" class="btn btn-warning">更新考生成绩</button>
+                            <button type="submit" class="btn btn-warning btn-raised">更新考生成绩</button>
                         </form>
                         <table class="table table-striped">
                             <thead>
@@ -43,7 +43,7 @@
                                         <form class="reExam" action="{{ url('admin/scoreMgr/'.$paper->id.'/reExam/'.$examinee->id) }}" method="POST" style="display: inline;">
                                             {{ method_field('DELETE') }}
                                             {{ csrf_field() }}
-                                            <input type="submit" class="btn btn-danger" value="重考"/>
+                                            <input type="submit" class="btn btn-danger btn-raised" value="重考"/>
                                         </form>
                                     </td>
                                 </tr>

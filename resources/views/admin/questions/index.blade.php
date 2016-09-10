@@ -16,14 +16,14 @@
                             </div>
                         @endif
 
-                        <button class="btn btn-block btn-success btn-lg" id="add-question">添加题目</button>
+                        <button class="btn btn-block btn-success btn-lg btn-raised" id="add-question">添加题目</button>
                             <br>
                             <form action="questions" class="form-inline">
-                                <a href="?filter=all" class="btn btn-primary">显示全部 <span class="badge">{{ $questions_count['all'] }}</span></a>
-                                <a href="?filter=multi" class="btn btn-info">单选题 <span class="badge">{{ $questions_count['multi'] }}</span></a>
-                                <a href="?filter=judge" class="btn btn-info">判断题 <span class="badge">{{ $questions_count['judge'] }}</span></a>
+                                <a href="?filter=all" class="btn btn-primary btn-raised">显示全部 <span class="badge">{{ $questions_count['all'] }}</span></a>
+                                <a href="?filter=multi" class="btn btn-info btn-raised">单选题 <span class="badge">{{ $questions_count['multi'] }}</span></a>
+                                <a href="?filter=judge" class="btn btn-info btn-raised">判断题 <span class="badge">{{ $questions_count['judge'] }}</span></a>
                                 <input type="text" class="form-control" placeholder="搜索题目..." name="query">
-                                <button type="submit" class="btn btn-primary">搜索</button>
+                                <button type="submit" class="btn btn-primary btn-raised">搜索</button>
                             </form>
                         <table class="table table-striped">
                             <thead>
@@ -48,8 +48,8 @@
                                     <td>{!! $question['type'] == 0?$question['C']:'' !!}</td>
                                     <td>{!! $question['type'] == 0?$question['D']:'' !!}</td>
                                     <td>{{ \App\Http\Controllers\Admin\QuestionController::getAns($question['type'], $question['ans']) }}</td>
-                                    <td><button class="btn btn-info edit-question" value="{{ $question['id'] }}">修改</button>
-                                    <button class="btn btn-warning delete-question" value="{{ $question['id'] }}">删除</button>
+                                    <td><button class="btn btn-info edit-question btn-raised" value="{{ $question['id'] }}">修改</button>
+                                    <button class="btn btn-warning delete-question btn-raised" value="{{ $question['id'] }}">删除</button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -82,7 +82,7 @@
                                                     <div class="row">
                                                         <label for="qcontent" class="control-label col-sm-2">题目</label>
                                                         <div class="col-sm-10">
-                                                            <textarea id="qcontent" name="qcontent" class="form-control" required="required" placeholder="请输入题目内容" rows="6"></textarea>
+                                                            <textarea id="qcontent" name="qcontent" class="form-control" required="required" placeholder="请输入题目内容" rows="3"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -137,7 +137,7 @@
                                             </form>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" id="qsave" value="update">更新</button>
+                                            <button type="button" class="btn btn-primary btn-raised" id="qsave" value="update">更新</button>
                                             <input type="hidden" id="qid" name="qid" value="-1">
                                         </div>
                                     </div>
