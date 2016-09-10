@@ -18,9 +18,7 @@
                             <form action="{{ url('article/') }}" method="POST" novalidate>
                                 {!! csrf_field() !!}
                                 <input type="text" name="title" class="form-control" required="required" placeholder="请输入标题" value="{{  old('title') }}">
-                                <br>
                                 <textarea name="content" rows="10" class="form-control editor" required="required" placeholder="请输入内容">{!! old('content') !!}</textarea>
-                                <br>
                                 <div class="text-right">
                                     <select class="form-control" name="category">
                                         <option value="">请选择分类</option>
