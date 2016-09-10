@@ -41,7 +41,7 @@ return array(
 
     'route' => [
         'prefix' => 'admin/resources/files',
-        'middleware' => ['web', 'auth', 'opFile'], //Set to null to disable middleware filter
+        'middleware' => ['web', 'opFile'], //Set to null to disable middleware filter
     ],
 
     /*
