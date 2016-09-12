@@ -14,7 +14,7 @@ $( document ).ready(function() {
     });
 
 // questions manager
-    var qurl = "/admin/questions/";
+    var qurl = "/admin/questions";
     var getAns = function (type, ans) {
         var Ans = ['A', 'B', 'C', 'D', '正确', '错误'];
         return Ans[Number(type) * 4 + Number(ans)];
@@ -71,7 +71,7 @@ $( document ).ready(function() {
         toastr.warning('你确定要删除？<br><button class="btn btn-info btn-raised btn-raised" id="delete-question-sure">确定</button>');
         $('#delete-question-sure').click(function () {
             $.ajax({
-                url: qurl + qid,
+                url: qurl +'/'+ qid,
                 type: 'DELETE',
                 success: function (data) {
                     toastr.info('删除成功');
@@ -91,7 +91,7 @@ $( document ).ready(function() {
         $('#qsave').text('更新');
         $('#qsave').val('update');
         var qid = $(this).val();
-        $.get(qurl + qid, function (data) {
+        $.get(qurl +'/'+ qid, function (data) {
             console.log(data);
             $('#qtype').val(data.type);
             $('#qtype').attr('disabled', 'disabeld');
@@ -144,7 +144,7 @@ $( document ).ready(function() {
 
         if ($('#qsave').val() == 'update') {
             var type = 'PUT';
-            var url = qurl + qid;
+            var url = qurl +'/'+ qid;
         }
         else {
             var type = 'POST';

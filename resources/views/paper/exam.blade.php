@@ -163,7 +163,7 @@
                                         }
                                         setInterval(remainTime, 1000);
 
-                                        $('#exam').on("click", function () {
+                                        $('#examSubmit').on("click", function () {
                                             return confirm('你确定要交卷？');
                                         });
                                     </script>
