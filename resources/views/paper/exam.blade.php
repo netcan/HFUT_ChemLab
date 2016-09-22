@@ -52,7 +52,7 @@
 
                             <strong>一、判断题（每题 {{ $paper->judge_score }} 分，共 {{ $paper->questions()->where('type', 1)->count() * $paper->judge_score }} 分）</strong>
                             <ol>
-                                @foreach($paper->questions()->where('type', 1)->inRandomOrder()->get() as $question)
+                                @foreach($paper->questions()->where('type', 1)->get() as $question)
                                     <li>
                                         {{ $question->content }}
                                         （<div class="form-group question-selection">
@@ -90,12 +90,13 @@
                             </ol>
                             <strong>二、单选题（每题 {{ $paper->multi_score }} 分，共 {{ $paper->questions()->where('type', 0)->count() * $paper->multi_score }} 分）</strong>
                             <ol>
-                                @foreach($paper->questions()->where('type', 0)->inRandomOrder()->get() as $question)
+                                @foreach($paper->questions()->where('type', 0)->get() as $question)
                                     <li>
                                     <p>{{ $question->content }}</p>
                                         @php
                                             $order = ['A', 'B', 'C', 'D'];
-                                            $disorder = collect($order)->shuffle()->all();
+                                        //    $disorder = collect($order)->shuffle()->all();
+                                            $disorder = collect($order)->all();
                                             $selections = $question->getAttributes();
                                         @endphp
 
