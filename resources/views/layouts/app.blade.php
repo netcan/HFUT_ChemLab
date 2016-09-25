@@ -16,7 +16,7 @@
 
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-danger navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
 
@@ -29,9 +29,11 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <strong style="font-size: 20px;">合肥工业大学</strong> 化学实验室安全教育与考试系统
-                </a>
+                    <a class="" href="{{ url('/') }}">
+                        <img src="img/hfut_logo.png" class="hfut_logo">
+                        <img src="img/hfut.png" class="hfut">
+                    </a>
+                <img src="img/chemlab.png" class="chemlab">
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">

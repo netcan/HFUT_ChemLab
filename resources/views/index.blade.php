@@ -9,6 +9,7 @@
                 <div class="row">
                     <p><a href="{{ url('categories') }}" class="btn btn-success btn-block btn-raised btn-xlg">在线学习 <span class="badge">{{ $data['articles_count'] }}</span></a></p>
                     <p><a href="{{ url('papers') }}" type="button" class="btn btn-success btn-xlg btn-raised btn-block">在线考试 <span class="badge">{{ $data['papers_count'] }}</span></a> </p>
+                    <img src="img/gate.png" class="hfut_gate">
                 </div>
             </div>
         </div>
