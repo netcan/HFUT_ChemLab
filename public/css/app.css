@@ -8120,6 +8120,78 @@ body {
 .question-multi {
   color: black !important; }
 
+.button_common, .online_study, .online_exam, .rules, .accident, .safe_marking, .safe_course {
+  border-top: 1px solid #96d1f8;
+  padding: 20px 40px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  box-shadow: black 0 1px 0;
+  text-shadow: rgba(0, 0, 0, 0.4) 0 1px 0;
+  font-family: Georgia, serif;
+  vertical-align: middle;
+  text-align: center; }
+
+.online_study {
+  background: url("/img/study.jpg");
+  background-size: cover; }
+
+.online_study_font {
+  font-size: 30px;
+  font-weight: bolder;
+  text-shadow: rgba(255, 255, 255, 0.1) -1px -1px 1px, rgba(0, 0, 0, 0.5) 1px 1px 1px;
+  color: blue;
+  text-decoration: none; }
+
+.online_study_font:hover {
+  color: blue;
+  text-decoration: none; }
+
+.online_study_font:focus {
+  color: blue;
+  text-decoration: none; }
+
+.online_exam {
+  background: url("/img/exam.jpg");
+  background-size: cover; }
+
+.online_exam_font {
+  font-size: 30px;
+  font-weight: bolder;
+  text-shadow: rgba(255, 255, 255, 0.1) -1px -1px 1px, rgba(0, 0, 0, 0.5) 1px 1px 1px;
+  color: red;
+  text-decoration: none; }
+
+.online_exam_font:hover {
+  color: red;
+  text-decoration: none; }
+
+.online_exam_font:focus {
+  color: red;
+  text-decoration: none; }
+
+.rules {
+  background: url("/img/rules.jpg");
+  background-size: 100% 100%; }
+
+.accident {
+  background: url("/img/accident.jpg");
+  background-size: 100% 100%; }
+
+.safe_marking {
+  background: url("/img/safe_marking.png");
+  background-size: 100% 100%; }
+
+.safe_course {
+  background: url("/img/safe_course.jpg");
+  background-size: 100% 100%; }
+
+.types_font, .types_font:hover, .types_font:focus {
+  font-size: 18px;
+  font-weight: bolder;
+  text-shadow: rgba(255, 255, 255, 0.1) -1px -1px 1px, rgba(0, 0, 0, 0.5) 1px 1px 1px;
+  color: blue;
+  text-decoration: none; }
+
 .hfut_logo {
   padding-top: 5px;
   padding-bottom: 5px;

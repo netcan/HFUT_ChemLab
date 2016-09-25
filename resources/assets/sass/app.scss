@@ -45,6 +45,110 @@ body {
   color: black!important;
 }
 
+.button_common {
+  border-top: 1px solid #96d1f8;
+  padding: 20px 40px;
+  margin-bottom: 10px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  box-shadow: rgba(0,0,0,1) 0 1px 0;
+  text-shadow: rgba(0,0,0,.4) 0 1px 0;
+  font-family: Georgia, serif;
+  vertical-align: middle;
+  text-align: center;
+}
+
+
+.online_study {
+  @extend .button_common;
+  background: url('/img/study.jpg');
+  background-size: cover;
+}
+
+.online_study_font {
+  font-size: 30px;
+  font-weight: bolder;
+  text-shadow: rgba(255,255,255,.1) -1px -1px 1px,rgba(0,0,0,.5) 1px 1px 1px;
+  color: blue;
+  text-decoration: none;
+}
+
+.online_study_font:hover {
+  color: blue;
+  text-decoration: none;
+}
+
+.online_study_font:focus {
+  color: blue;
+  text-decoration: none;
+}
+
+.online_exam {
+  @extend .button_common;
+  background: url('/img/exam.jpg');
+  background-size: cover;
+}
+
+.online_exam_font {
+  font-size: 30px;
+  font-weight: bolder;
+  text-shadow: rgba(255,255,255,.1) -1px -1px 1px,rgba(0,0,0,.5) 1px 1px 1px;
+  color: red;
+  text-decoration: none;
+}
+
+.online_exam_font:hover {
+  color: red;
+  text-decoration: none;
+}
+
+.online_exam_font:focus {
+  color: red;
+  text-decoration: none;
+}
+
+.rules {
+  @extend .button_common;
+  background: url('/img/rules.jpg');
+  background-size: 100% 100%;
+}
+
+.accident {
+  @extend .button_common;
+  background: url('/img/accident.jpg');
+  background-size: 100% 100%;
+}
+
+.safe_marking {
+  @extend .button_common;
+  background: url('/img/safe_marking.png');
+  background-size: 100% 100%;
+}
+
+.safe_course {
+  @extend .button_common;
+  background: url('/img/safe_course.jpg');
+  background-size: 100% 100%;
+}
+
+.types_font {
+  font-size: 18px;
+  font-weight: bolder;
+  text-shadow: rgba(255,255,255,.1) -1px -1px 1px,rgba(0,0,0,.5) 1px 1px 1px;
+  color: blue;
+  text-decoration: none;
+}
+.types_font:hover {
+  @extend .types_font;
+}
+
+.types_font:focus {
+  @extend .types_font;
+}
+
 .hfut_logo {
   padding-top: 5px;
   padding-bottom: 5px;

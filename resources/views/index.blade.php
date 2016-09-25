@@ -7,8 +7,8 @@
         <div class="col-md-3">
             <div class="container-fluid">
                 <div class="row">
-                    <p><a href="{{ url('categories') }}" class="btn btn-success btn-block btn-raised btn-xlg">在线学习 <span class="badge">{{ $data['articles_count'] }}</span></a></p>
-                    <p><a href="{{ url('papers') }}" type="button" class="btn btn-success btn-xlg btn-raised btn-block">在线考试 <span class="badge">{{ $data['papers_count'] }}</span></a> </p>
+                    <div class="online_study"><a href="{{ url('categories') }}" type="button" class="online_study_font">在线学习 <span class="badge">{{ $data['articles_count'] }}</span></a></div>
+                    <div class="online_exam"><a href="{{ url('papers') }}" type="button" class="online_exam_font">在线考试 <span class="badge">{{ $data['papers_count'] }}</span></a> </div>
                     <img src="img/gate.png" class="hfut_gate">
                 </div>
             </div>
@@ -50,6 +50,14 @@
                     </div>
                 </div>
                 {{-- info --}}
+                @php
+                    $types_class = [
+                        'rules',
+                        'accident',
+                        'safe_marking',
+                        'safe_course'
+                    ];
+                @endphp
                 <div class="row">
                     @for($i=0; $i < 2; ++$i)
                         <div class="container-fluid">
@@ -57,7 +65,9 @@
                                 @for($j=0; $j < 2; ++$j)
                                     <div class="col-md-6">
                                         <span class="hidden">{{ $p = $i*2 + $j + 2 }}</span>
-                                        <a href="{{ url('categories/'.$data['baseId'][$p]) }}" class="btn btn-success btn-xlg btn-block btn-raised">{{  $data['baseInfo'][$p]->name }} <span class="badge">{{ $data['baseInfo'][$p]->articles_count }}</span></a>
+                                        <div class="{{ $types_class[$p-2] }}">
+                                            <a href="{{ url('categories/'.$data['baseId'][$p]) }}" type="button" class="types_font">{{  $data['baseInfo'][$p]->name }} <span class="badge">{{ $data['baseInfo'][$p]->articles_count }}</span></a>
+                                        </div>
                                     </div>
                                 @endfor
                             </div>
