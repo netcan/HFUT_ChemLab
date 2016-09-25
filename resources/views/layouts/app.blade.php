@@ -30,10 +30,10 @@
 
                 <!-- Branding Image -->
                     <a class="" href="{{ url('/') }}">
-                        <img src="img/hfut_logo.png" class="hfut_logo">
-                        <img src="img/hfut.png" class="hfut">
+                        <img src="/img/hfut_logo.png" class="hfut_logo">
+                        <img src="/img/hfut.png" class="hfut">
                     </a>
-                <img src="img/chemlab.png" class="chemlab">
+                <img src="/img/chemlab.png" class="chemlab">
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">

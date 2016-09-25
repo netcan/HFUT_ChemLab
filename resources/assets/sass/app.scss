@@ -63,3 +63,76 @@ body {
   height: 40px;
 }
 
+.system_info {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px
+}
+
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0
+}
+
+::-webkit-scrollbar-button:end:decrement,::-webkit-scrollbar-button:start:increment {
+  display: none
+}
+
+::-webkit-scrollbar-corner {
+  display: block
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  background-color: rgba(0,0,0,.2)
+}
+
+::-webkit-scrollbar-thumb:hover {
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  background-color: rgba(0,0,0,.5)
+}
+
+::-webkit-scrollbar-thumb,::-webkit-scrollbar-track {
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent
+}
+
+::-webkit-scrollbar-track:hover {
+  background-color: rgba(0,0,0,.15)
+}
+
+::-webkit-scrollbar-button:start {
+  width: 10px;
+  height: 10px;
+  background: url(/img/scrollbar_arrow.png) no-repeat
+}
+
+::-webkit-scrollbar-button:start:hover {
+  background: url(/img/scrollbar_arrow.png) -15px 0 no-repeat
+}
+
+::-webkit-scrollbar-button:start:active {
+  background: url(/img/scrollbar_arrow.png) -30px 0 no-repeat
+}
+
+::-webkit-scrollbar-button:end {
+  width: 10px;
+  height: 10px;
+  background: url(/img/scrollbar_arrow.png) 0 -18px no-repeat
+}
+
+::-webkit-scrollbar-button:end:hover {
+  background: url(/img/scrollbar_arrow.png) -15px -18px no-repeat
+}
+
+::-webkit-scrollbar-button:end:active {
+  background: url(/img/scrollbar_arrow.png) -30px -18px no-repeat
+}
+
+

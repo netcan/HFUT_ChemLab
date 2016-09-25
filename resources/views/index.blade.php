@@ -17,7 +17,7 @@
         <div class="col-md-5">
             <div class="panel panel-info">
                 <div class="panel-heading"><i class="fa fa-info"></i> 系统提示</div>
-                <div class="panel-body">
+                <div class="panel-body system_info">
                     @if($data['systeminfo'])
                         {!! $data['systeminfo']->content !!}
                     @endif
