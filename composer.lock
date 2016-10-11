@@ -9,23 +9,24 @@
     "packages": [
         {
             "name": "barryvdh/elfinder-flysystem-driver",
-            "version": "v0.1.5",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/elfinder-flysystem-driver.git",
-                "reference": "603afb0fa4b4d42a8c998759a02f69e9dc5ce6cb"
+                "reference": "61d70d94786e12eecdfb97de289ffa5c33c521e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/barryvdh/elfinder-flysystem-driver/603afb0fa4b4d42a8c998759a02f69e9dc5ce6cb.zip",
-                "reference": "603afb0fa4b4d42a8c998759a02f69e9dc5ce6cb",
+                "url": "https://packagist.phpcomposer.com/files/barryvdh/elfinder-flysystem-driver/61d70d94786e12eecdfb97de289ffa5c33c521e5.zip",
+                "reference": "61d70d94786e12eecdfb97de289ffa5c33c521e5",
                 "shasum": ""
             },
             "require": {
-                "intervention/image": "~2.0",
-                "league/flysystem": "~1.0",
+                "intervention/image": "^2.0",
+                "league/flysystem": "^1.0",
+                "league/flysystem-cached-adapter": "^1.0",
                 "php": ">=5.4",
-                "studio-42/elfinder": "2.1.x"
+                "studio-42/elfinder": "^2.1.10"
             },
             "suggest": {
                 "league/glide": "1.x to display images through Glide"
@@ -33,7 +34,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.1-dev"
+                    "dev-master": "0.2-dev"
                 }
             },
             "autoload": {
@@ -60,32 +61,32 @@
                 "elfinder",
                 "filesystem"
             ],
-            "time": "2016-04-04 14:10:16"
+            "time": "2016-04-05 14:47:48"
         },
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "V2.2.3",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "ecd1ce5c4a827e2f6a8fb41bcf67713beb1c1cbd"
+                "reference": "0c87981df959c7c1943abe227baf607c92f204f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/barryvdh/laravel-debugbar/ecd1ce5c4a827e2f6a8fb41bcf67713beb1c1cbd.zip",
-                "reference": "ecd1ce5c4a827e2f6a8fb41bcf67713beb1c1cbd",
+                "url": "https://packagist.phpcomposer.com/files/barryvdh/laravel-debugbar/0c87981df959c7c1943abe227baf607c92f204f9.zip",
+                "reference": "0c87981df959c7c1943abe227baf607c92f204f9",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "5.1.*|5.2.*|5.3.*",
-                "maximebf/debugbar": "~1.11.0|~1.12.0",
+                "maximebf/debugbar": "~1.13.0",
                 "php": ">=5.5.9",
                 "symfony/finder": "~2.7|~3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2-dev"
+                    "dev-master": "2.3-dev"
                 }
             },
             "autoload": {
@@ -114,25 +115,25 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2016-07-29 15:00:36"
+            "time": "2016-09-15 14:05:56"
         },
         {
             "name": "barryvdh/laravel-elfinder",
-            "version": "v0.3.7",
+            "version": "v0.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-elfinder.git",
-                "reference": "e8e307a950c73d01b90f0120ef5bf20228669dbc"
+                "reference": "8a84e387482fb7a4e3a922f59339719710a00fdc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/barryvdh/laravel-elfinder/e8e307a950c73d01b90f0120ef5bf20228669dbc.zip",
-                "reference": "e8e307a950c73d01b90f0120ef5bf20228669dbc",
+                "url": "https://packagist.phpcomposer.com/files/barryvdh/laravel-elfinder/8a84e387482fb7a4e3a922f59339719710a00fdc.zip",
+                "reference": "8a84e387482fb7a4e3a922f59339719710a00fdc",
                 "shasum": ""
             },
             "require": {
-                "barryvdh/elfinder-flysystem-driver": "^0.1.4",
-                "illuminate/support": "5.0.x|5.1.x|5.2.x",
+                "barryvdh/elfinder-flysystem-driver": "^0.1.4|^0.2",
+                "illuminate/support": "5.0.x|5.1.x|5.2.x|5.3.x",
                 "league/flysystem": "^1.0",
                 "league/flysystem-cached-adapter": "^1.0",
                 "php": ">=5.4.0",
@@ -166,7 +167,7 @@
                 "laravel",
                 "tinymce"
             ],
-            "time": "2016-04-04 13:50:01"
+            "time": "2016-08-18 14:55:46"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -649,16 +650,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "v2.5.4",
+            "version": "v2.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "abbdfd1cff43a7b99d027af3be709bc8fc7d4769"
+                "reference": "9f8c05cd5225a320d56d4bfdb4772f10d045a0c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/doctrine/dbal/abbdfd1cff43a7b99d027af3be709bc8fc7d4769.zip",
-                "reference": "abbdfd1cff43a7b99d027af3be709bc8fc7d4769",
+                "url": "https://packagist.phpcomposer.com/files/doctrine/dbal/9f8c05cd5225a320d56d4bfdb4772f10d045a0c9.zip",
+                "reference": "9f8c05cd5225a320d56d4bfdb4772f10d045a0c9",
                 "shasum": ""
             },
             "require": {
@@ -667,7 +668,7 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "4.*",
-                "symfony/console": "2.*"
+                "symfony/console": "2.*||^3.0"
             },
             "suggest": {
                 "symfony/console": "For helpful console commands such as SQL execution and import of files."
@@ -716,7 +717,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2016-01-05 22:11:12"
+            "time": "2016-09-09 19:13:33"
         },
         {
             "name": "doctrine/inflector",
@@ -899,16 +900,16 @@
         },
         {
             "name": "intervention/image",
-            "version": "2.3.7",
+            "version": "2.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "22088b04728a039bd1fc32f7e79a89a118b78698"
+                "reference": "4064a980324f6c3bfa2bd981dfb247afa705ec3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/Intervention/image/22088b04728a039bd1fc32f7e79a89a118b78698.zip",
-                "reference": "22088b04728a039bd1fc32f7e79a89a118b78698",
+                "url": "https://packagist.phpcomposer.com/files/Intervention/image/4064a980324f6c3bfa2bd981dfb247afa705ec3c.zip",
+                "reference": "4064a980324f6c3bfa2bd981dfb247afa705ec3c",
                 "shasum": ""
             },
             "require": {
@@ -957,7 +958,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2016-04-26 14:08:40"
+            "time": "2016-09-01 17:04:03"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -1106,16 +1107,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "5.2.41",
+            "version": "v5.2.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "29ba2e310cfeb42ab6545bcd81ff4c2ec1f6b5c2"
+                "reference": "2a79f920d5584ec6df7cf996d922a742d11095d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/29ba2e310cfeb42ab6545bcd81ff4c2ec1f6b5c2",
-                "reference": "29ba2e310cfeb42ab6545bcd81ff4c2ec1f6b5c2",
+                "url": "https://packagist.phpcomposer.com/files/laravel/framework/2a79f920d5584ec6df7cf996d922a742d11095d1.zip",
+                "reference": "2a79f920d5584ec6df7cf996d922a742d11095d1",
                 "shasum": ""
             },
             "require": {
@@ -1196,7 +1197,7 @@
                 "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (~2.0).",
                 "symfony/css-selector": "Required to use some of the crawler integration testing tools (2.8.*|3.0.*).",
                 "symfony/dom-crawler": "Required to use most of the crawler integration testing tools (2.8.*|3.0.*).",
-                "symfony/psr-http-message-bridge": "Required to psr7 bridging features (0.2.*)."
+                "symfony/psr-http-message-bridge": "Required to use psr7 bridging features (0.2.*)."
             },
             "type": "library",
             "extra": {
@@ -1232,20 +1233,20 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-07-20 13:13:06"
+            "time": "2016-08-26 11:44:52"
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.26",
+            "version": "1.0.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "fb3b30dca320b36931ea878fea17ebe136fba1b0"
+                "reference": "a9663643ff2d16d7f66ed1e0d3212c5491bc9044"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/thephpleague/flysystem/fb3b30dca320b36931ea878fea17ebe136fba1b0.zip",
-                "reference": "fb3b30dca320b36931ea878fea17ebe136fba1b0",
+                "url": "https://packagist.phpcomposer.com/files/thephpleague/flysystem/a9663643ff2d16d7f66ed1e0d3212c5491bc9044.zip",
+                "reference": "a9663643ff2d16d7f66ed1e0d3212c5491bc9044",
                 "shasum": ""
             },
             "require": {
@@ -1315,7 +1316,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2016-08-03 09:49:11"
+            "time": "2016-10-07 12:20:37"
         },
         {
             "name": "league/flysystem-cached-adapter",
@@ -1367,16 +1368,16 @@
         },
         {
             "name": "maximebf/debugbar",
-            "version": "v1.12.0",
+            "version": "v1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "e634fbd32cd6bc3fa0e8c972b52d4bf49bab3988"
+                "reference": "5f49a5ed6cfde81d31d89378806670d77462526e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/maximebf/php-debugbar/e634fbd32cd6bc3fa0e8c972b52d4bf49bab3988.zip",
-                "reference": "e634fbd32cd6bc3fa0e8c972b52d4bf49bab3988",
+                "url": "https://packagist.phpcomposer.com/files/maximebf/php-debugbar/5f49a5ed6cfde81d31d89378806670d77462526e.zip",
+                "reference": "5f49a5ed6cfde81d31d89378806670d77462526e",
                 "shasum": ""
             },
             "require": {
@@ -1395,7 +1396,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.12-dev"
+                    "dev-master": "1.13-dev"
                 }
             },
             "autoload": {
@@ -1424,7 +1425,7 @@
                 "debug",
                 "debugbar"
             ],
-            "time": "2016-05-15 13:11:34"
+            "time": "2016-09-15 14:01:59"
         },
         {
             "name": "monolog/monolog",
@@ -1597,16 +1598,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v2.1.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "47b254ea51f1d6d5dc04b9b299e88346bf2369e3"
+                "reference": "4dd659edadffdc2143e4753df655d866dbfeedf0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/47b254ea51f1d6d5dc04b9b299e88346bf2369e3",
-                "reference": "47b254ea51f1d6d5dc04b9b299e88346bf2369e3",
+                "url": "https://packagist.phpcomposer.com/files/nikic/PHP-Parser/4dd659edadffdc2143e4753df655d866dbfeedf0.zip",
+                "reference": "4dd659edadffdc2143e4753df655d866dbfeedf0",
                 "shasum": ""
             },
             "require": {
@@ -1644,7 +1645,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2016-04-19 13:41:41"
+            "time": "2016-09-16 12:04:44"
         },
         {
             "name": "paragonie/random_compat",
@@ -1742,16 +1743,16 @@
         },
         {
             "name": "psr/http-message",
-            "version": "1.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-message.git",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298"
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/php-fig/http-message/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298.zip",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+                "url": "https://packagist.phpcomposer.com/files/php-fig/http-message/f6561bf28d520154e4b0ec72be95418abe6d9363.zip",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
                 "shasum": ""
             },
             "require": {
@@ -1779,6 +1780,7 @@
                 }
             ],
             "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
             "keywords": [
                 "http",
                 "http-message",
@@ -1787,26 +1789,34 @@
                 "request",
                 "response"
             ],
-            "time": "2015-05-04 20:22:00"
+            "time": "2016-08-06 14:39:51"
         },
         {
             "name": "psr/log",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "url": "https://packagist.phpcomposer.com/files/php-fig/log/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d.zip",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
                 "shasum": ""
             },
+            "require": {
+                "php": ">=5.3.0"
+            },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
-                "psr-0": {
-                    "Psr\\Log\\": ""
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1820,12 +1830,13 @@
                 }
             ],
             "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
             "keywords": [
                 "log",
                 "psr",
                 "psr-3"
             ],
-            "time": "2012-12-21 11:40:51"
+            "time": "2016-10-10 12:19:37"
         },
         {
             "name": "psy/psysh",
@@ -2060,16 +2071,16 @@
         },
         {
             "name": "studio-42/elfinder",
-            "version": "2.1.14",
+            "version": "2.1.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "02c19ae09a36ec83a837b28eb5b232f5ce7b0bd9"
+                "reference": "2b0d0db00079a652bcfb8ee4ad82720c5f6c33dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/Studio-42/elFinder/02c19ae09a36ec83a837b28eb5b232f5ce7b0bd9.zip",
-                "reference": "02c19ae09a36ec83a837b28eb5b232f5ce7b0bd9",
+                "url": "https://packagist.phpcomposer.com/files/Studio-42/elFinder/2b0d0db00079a652bcfb8ee4ad82720c5f6c33dc.zip",
+                "reference": "2b0d0db00079a652bcfb8ee4ad82720c5f6c33dc",
                 "shasum": ""
             },
             "require": {
@@ -2114,7 +2125,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2016-07-25 00:34:19"
+            "time": "2016-10-11 04:44:07"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2171,16 +2182,16 @@
         },
         {
             "name": "symfony/class-loader",
-            "version": "v3.1.3",
+            "version": "v3.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/class-loader.git",
-                "reference": "817f09b4c37b7688fa4342cb4642d8f2d81c1097"
+                "reference": "bcb072aba46ddf3b1a496438c63be6be647739aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/class-loader/817f09b4c37b7688fa4342cb4642d8f2d81c1097.zip",
-                "reference": "817f09b4c37b7688fa4342cb4642d8f2d81c1097",
+                "url": "https://packagist.phpcomposer.com/files/symfony/class-loader/bcb072aba46ddf3b1a496438c63be6be647739aa.zip",
+                "reference": "bcb072aba46ddf3b1a496438c63be6be647739aa",
                 "shasum": ""
             },
             "require": {
@@ -2223,7 +2234,7 @@
             ],
             "description": "Symfony ClassLoader Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-10 08:05:47"
+            "time": "2016-09-06 23:30:54"
         },
         {
             "name": "symfony/console",
@@ -2344,7 +2355,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v3.1.3",
+            "version": "v3.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -2352,7 +2363,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/c0c00c80b3a69132c4e55c3e7db32b4a387615e5",
+                "url": "https://packagist.phpcomposer.com/files/symfony/event-dispatcher/c0c00c80b3a69132c4e55c3e7db32b4a387615e5.zip",
                 "reference": "c0c00c80b3a69132c4e55c3e7db32b4a387615e5",
                 "shasum": ""
             },
@@ -3006,16 +3017,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v2.3.0",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "9ca5644c536654e9509b9d257f53c58630eb2a6a"
+                "reference": "3cc116adbe4b11be5ec557bf1d24dc5e3a21d18c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/9ca5644c536654e9509b9d257f53c58630eb2a6a",
-                "reference": "9ca5644c536654e9509b9d257f53c58630eb2a6a",
+                "url": "https://packagist.phpcomposer.com/files/vlucas/phpdotenv/3cc116adbe4b11be5ec557bf1d24dc5e3a21d18c.zip",
+                "reference": "3cc116adbe4b11be5ec557bf1d24dc5e3a21d18c",
                 "shasum": ""
             },
             "require": {
@@ -3027,7 +3038,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev"
+                    "dev-master": "2.4-dev"
                 }
             },
             "autoload": {
@@ -3052,7 +3063,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2016-06-14 14:14:52"
+            "time": "2016-09-01 10:05:43"
         }
     ],
     "packages-dev": [
@@ -3204,6 +3215,208 @@
             "time": "2015-05-11 14:41:42"
         },
         {
+            "name": "illuminate/console",
+            "version": "v5.2.43",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/console.git",
+                "reference": "c6d838c6f9ac3f1aec28cde93bf613283153785e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/illuminate/console/c6d838c6f9ac3f1aec28cde93bf613283153785e.zip",
+                "reference": "c6d838c6f9ac3f1aec28cde93bf613283153785e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "5.2.*",
+                "illuminate/support": "5.2.*",
+                "nesbot/carbon": "~1.20",
+                "php": ">=5.5.9",
+                "symfony/console": "2.8.*|3.0.*"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "Required to use the ping methods on schedules (~5.3|~6.0).",
+                "mtdowling/cron-expression": "Required to use scheduling component (~1.0).",
+                "symfony/process": "Required to use scheduling component (2.8.*|3.0.*)."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Console\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The Illuminate Console package.",
+            "homepage": "http://laravel.com",
+            "time": "2016-08-01 13:49:14"
+        },
+        {
+            "name": "illuminate/contracts",
+            "version": "v5.2.43",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/contracts.git",
+                "reference": "22bde7b048a33c702d9737fc1446234fff9b1363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/illuminate/contracts/22bde7b048a33c702d9737fc1446234fff9b1363.zip",
+                "reference": "22bde7b048a33c702d9737fc1446234fff9b1363",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Contracts\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The Illuminate Contracts package.",
+            "homepage": "http://laravel.com",
+            "time": "2016-08-08 11:46:08"
+        },
+        {
+            "name": "illuminate/filesystem",
+            "version": "v5.2.43",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/filesystem.git",
+                "reference": "df115e3cc4444f340064a3e20e16eed9c25e8263"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/illuminate/filesystem/df115e3cc4444f340064a3e20e16eed9c25e8263.zip",
+                "reference": "df115e3cc4444f340064a3e20e16eed9c25e8263",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "5.2.*",
+                "illuminate/support": "5.2.*",
+                "php": ">=5.5.9",
+                "symfony/finder": "2.8.*|3.0.*"
+            },
+            "suggest": {
+                "league/flysystem": "Required to use the Flysystem local and FTP drivers (~1.0).",
+                "league/flysystem-aws-s3-v3": "Required to use the Flysystem S3 driver (~1.0).",
+                "league/flysystem-rackspace": "Required to use the Flysystem Rackspace driver (~1.0)."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Filesystem\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The Illuminate Filesystem package.",
+            "homepage": "http://laravel.com",
+            "time": "2016-08-01 13:49:14"
+        },
+        {
+            "name": "illuminate/support",
+            "version": "v5.2.43",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/support.git",
+                "reference": "510230ab62a7d85dc70203f4fdca6fb71a19e08a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/illuminate/support/510230ab62a7d85dc70203f4fdca6fb71a19e08a.zip",
+                "reference": "510230ab62a7d85dc70203f4fdca6fb71a19e08a",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/inflector": "~1.0",
+                "ext-mbstring": "*",
+                "illuminate/contracts": "5.2.*",
+                "paragonie/random_compat": "~1.4",
+                "php": ">=5.5.9"
+            },
+            "replace": {
+                "tightenco/collect": "self.version"
+            },
+            "suggest": {
+                "illuminate/filesystem": "Required to use the composer class (5.2.*).",
+                "jeremeamia/superclosure": "Required to be able to serialize closures (~2.2).",
+                "symfony/polyfill-php56": "Required to use the hash_equals function on PHP 5.5 (~1.0).",
+                "symfony/process": "Required to use the composer class (2.8.*|3.0.*).",
+                "symfony/var-dumper": "Improves the dd function (2.8.*|3.0.*)."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Support\\": ""
+                },
+                "files": [
+                    "helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The Illuminate Support package.",
+            "homepage": "http://laravel.com",
+            "time": "2016-08-05 14:49:58"
+        },
+        {
             "name": "mockery/mockery",
             "version": "0.9.5",
             "source": {
@@ -3324,16 +3537,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "9270140b940ff02e58ec577c237274e92cd40cdd"
+                "reference": "8331b5efe816ae05461b7ca1e721c01b46bafb3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/9270140b940ff02e58ec577c237274e92cd40cdd",
-                "reference": "9270140b940ff02e58ec577c237274e92cd40cdd",
+                "url": "https://packagist.phpcomposer.com/files/phpDocumentor/ReflectionDocBlock/8331b5efe816ae05461b7ca1e721c01b46bafb3e.zip",
+                "reference": "8331b5efe816ae05461b7ca1e721c01b46bafb3e",
                 "shasum": ""
             },
             "require": {
@@ -3365,7 +3578,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2016-06-10 09:48:41"
+            "time": "2016-09-30 07:12:33"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -3965,23 +4178,23 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "1.3.7",
+            "version": "1.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "4e8f0da10ac5802913afc151413bc8c53b6c2716"
+                "reference": "be2c607e43ce4c89ecd60e75c6a85c126e754aea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/4e8f0da10ac5802913afc151413bc8c53b6c2716",
-                "reference": "4e8f0da10ac5802913afc151413bc8c53b6c2716",
+                "url": "https://packagist.phpcomposer.com/files/sebastianbergmann/environment/be2c607e43ce4c89ecd60e75c6a85c126e754aea.zip",
+                "reference": "be2c607e43ce4c89ecd60e75c6a85c126e754aea",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": "^5.3.3 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.4"
+                "phpunit/phpunit": "^4.8 || ^5.0"
             },
             "type": "library",
             "extra": {
@@ -4011,7 +4224,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2016-05-17 03:18:57"
+            "time": "2016-08-18 05:49:44"
         },
         {
             "name": "sebastian/exporter",
@@ -4379,28 +4592,29 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "30eed06dd6bc88410a4ff7f77b6d22f3ce13dbde"
+                "reference": "bb2d123231c095735130cc8f6d31385a44c7b308"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/30eed06dd6bc88410a4ff7f77b6d22f3ce13dbde",
-                "reference": "30eed06dd6bc88410a4ff7f77b6d22f3ce13dbde",
+                "url": "https://packagist.phpcomposer.com/files/webmozart/assert/bb2d123231c095735130cc8f6d31385a44c7b308.zip",
+                "reference": "bb2d123231c095735130cc8f6d31385a44c7b308",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": "^5.3.3|^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.6"
+                "phpunit/phpunit": "^4.6",
+                "sebastian/version": "^1.0.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -4424,7 +4638,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2015-08-24 13:29:44"
+            "time": "2016-08-09 15:02:57"
         }
     ],
     "aliases": [],
