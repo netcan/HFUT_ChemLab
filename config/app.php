@@ -162,7 +162,6 @@ return [
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        PragmaRX\Tracker\Vendor\Laravel\ServiceProvider::class,
     ],
 
     /*
@@ -210,7 +209,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Input' => Illuminate\Support\Facades\Input::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
-        'Tracker' => 'PragmaRX\Tracker\Vendor\Laravel\Facade',
     ],
 
 ];
