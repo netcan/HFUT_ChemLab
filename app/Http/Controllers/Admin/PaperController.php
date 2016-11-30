@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
+use Excel;
 
 class PaperController extends Controller
 {
@@ -261,6 +262,42 @@ class PaperController extends Controller
             'examinees' => $examinees
         ]);
     }
+
+	/**
+	 * 下载试卷统计结果
+	 *
+	 * @return Excel object
+	 */
+	public function downloadResult($pid)
+	{
+		$paper = Paper::find($pid);
+		$examinees = $paper->users()->get();
+		$result = [];
+		foreach ($examinees as $examinee) {
+			if($examinee->pivot->score == -1)
+				$score = "考试中/未交卷";
+			else $score = $examinee->pivot->score*100 / $paper->full_score;
+
+			array_push($result, [
+				$examinee->uid,
+				$examinee->name,
+				$examinee->pivot->start_time,
+				$score
+			]);
+		}
+
+		return Excel::create($paper->title, function($excel) use($result) {
+			$excel->sheet('统计结果', function($sheet) use($result) {
+				$sheet->setOrientation('landscape');
+				$sheet->fromArray($result, null, 'A1', true);
+				$sheet->row(1, ["学号", "姓名", "开始时间", "成绩%"]);
+				$sheet->setColumnFormat(array(
+					'D' => '0.00'
+				));
+			});
+		})->export('xlsx');
+	}
+
 
     public function reExam($pid, $uid) {
         $user = User::find($uid);

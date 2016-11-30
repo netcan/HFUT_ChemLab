@@ -12,7 +12,8 @@
         "barryvdh/laravel-elfinder": "^0.3.7",
         "rap2hpoutre/laravel-log-viewer": "^0.7.0",
         "spatie/laravel-backup": "^3.10",
-        "barryvdh/laravel-debugbar": "^2.2"
+        "barryvdh/laravel-debugbar": "^2.2",
+		"maatwebsite/excel": "~2.1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

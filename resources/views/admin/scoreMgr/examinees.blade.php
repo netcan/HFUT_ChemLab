@@ -14,6 +14,7 @@
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
                             <button type="submit" class="btn btn-warning btn-raised">更新考生成绩</button>
+                            <a href="{{ $paper->id }}/download" class="btn btn-primary btn-raised">下载统计结果</a>
                         </form>
                         <table class="table table-striped">
                             <thead>

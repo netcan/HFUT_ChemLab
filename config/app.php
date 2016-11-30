@@ -162,6 +162,7 @@ return [
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+		Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
 
     /*
@@ -209,6 +210,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Input' => Illuminate\Support\Facades\Input::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+		'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];

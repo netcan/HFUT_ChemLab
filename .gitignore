@@ -4,6 +4,7 @@
 Homestead.yaml
 Homestead.json
 .phpstorm.meta.php
+storage/debugbar/
 /.idea
 .env
 _ide_*.php
