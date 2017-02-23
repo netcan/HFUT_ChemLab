@@ -8121,29 +8121,30 @@ body {
   color: black !important; }
 
 .button_common, .online_study, .online_exam, .rules, .accident, .safe_marking, .safe_course {
-  border-top: 1px solid #96d1f8;
-  padding: 20px 40px;
-  margin-bottom: 10px;
   border-radius: 15px;
-  box-shadow: black 0 1px 0;
   text-shadow: rgba(0, 0, 0, 0.4) 0 1px 0;
   font-family: Georgia, serif;
-  vertical-align: middle;
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 23px; }
+  .button_common img, .online_study img, .online_exam img, .rules img, .accident img, .safe_marking img, .safe_course img {
+    width: 16%; }
 
 .online_study {
-  background: url("/img/study.jpg");
+  background: url("/img/在线学习.png");
   background-size: cover; }
 
 .online_study_font {
   font-size: 30px;
   font-weight: bolder;
   text-shadow: rgba(255, 255, 255, 0.1) -1px -1px 1px, rgba(0, 0, 0, 0.5) 1px 1px 1px;
-  color: blue;
+  color: #16b9ba;
   text-decoration: none; }
 
+.navbar-color {
+  background-color: #687074 !important; }
+
 .online_study_font:hover {
-  color: blue;
+  color: #16b9ba;
   text-decoration: none; }
 
 .online_study_font:focus {

@@ -16,7 +16,7 @@
 
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-danger navbar-static-top">
+    <nav class="navbar navbar-color navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
 

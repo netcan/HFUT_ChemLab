@@ -7,8 +7,14 @@
         <div class="col-md-3">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="online_study"><a href="{{ url('categories') }}" type="button" class="online_study_font">在线学习 <span class="badge">{{ $data['articles_count'] }}</span></a></div>
-                    <div class="online_exam"><a href="{{ url('papers') }}" type="button" class="online_exam_font">在线考试 <span class="badge">{{ $data['papers_count'] }}</span></a> </div>
+                    <div class="button_common">
+                        <img src="img/在线学习.png">
+                        <a href="{{ url('categories') }}" type="button" class="online_study_font">在线学习 <span class="badge">{{ $data['articles_count'] }}</span></a>
+                    </div>
+                    <div class="button_common">
+                        <img src="img/在线考试.png">
+                        <a href="{{ url('papers') }}" type="button" class="online_exam_font">在线考试 <span class="badge">{{ $data['papers_count'] }}</span></a>
+                    </div>
                     <img src="img/gate.png" class="hfut_gate">
                 </div>
             </div>
@@ -51,11 +57,12 @@
                 </div>
                 {{-- info --}}
                 @php
-                    $types_class = [
-                        'rules',
-                        'accident',
-                        'safe_marking',
-                        'safe_course'
+
+                    $icons = [
+                        '规章制度.png',
+                        '事故案例.png',
+                        '安全标识.png',
+                        '安全讲座.png'
                     ];
                 @endphp
                 <div class="row">
@@ -65,7 +72,8 @@
                                 @for($j=0; $j < 2; ++$j)
                                     <div class="col-md-6">
                                         <span class="hidden">{{ $p = $i*2 + $j + 2 }}</span>
-                                        <div class="{{ $types_class[$p-2] }}">
+                                        <div class="button_common">
+                                            <img src="img/{{ $icons[$p-2] }}" class="hfut_gate">
                                             <a href="{{ url('categories/'.$data['baseId'][$p]) }}" type="button" class="types_font">{{  $data['baseInfo'][$p]->name }} <span class="badge">{{ $data['baseInfo'][$p]->articles_count }}</span></a>
                                         </div>
                                     </div>
