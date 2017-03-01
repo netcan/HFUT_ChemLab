@@ -15,7 +15,7 @@
                         <img src="img/在线考试.png">
                         <a href="{{ url('papers') }}" type="button" class="online_exam_font">在线考试 <span class="badge">{{ $data['papers_count'] }}</span></a>
                     </div>
-                    {{--<img src="img/gate.png" class="hfut_gate">--}}
+                    <img src="img/gate2.jpg" class="hfut_gate">
                 </div>
             </div>
         </div>
