@@ -59,6 +59,6 @@
    
 </div>
 <div class="con2"><p><span><a href="/categories/3"><img src="images/q4.png" width="156" height="156" /></a></span><span><a href="/categories/4"><img src="images/q5.png" width="156" height="156" /></a></span><span><a href="categories/5"><img src="images/q6.png" width="156" height="156" /></a></span><span><a href="categories/6"><img src="images/q9.png" width="156" height="156" /></a></span></p></div>
- <div class="foot">通讯地址： 合肥工业大学招生办公室  联系电话： 0551－62901228 　62904923（传真） 邮编： 230009 邮箱：hgdyzb@hfut.edu.cn</div>
+ <div class="foot">通讯地址： 安徽省宣城市宣州区薰化路301号</div>
 </body>
 </html>
