@@ -31,6 +31,7 @@ class HomeController extends Controller
             'notices' => Article::where('cid', $baseId[1])->orderBy('created_at', 'desc')->take(8)->get(),
             'papers_count' => Paper::where('full_score', '<>', 0)->count(),
         ];
-        return view('index')->with('data', $data);
+//        return view('index')->with('data', $data);
+        return view('main.index')->with('data', $data);
     }
 }
