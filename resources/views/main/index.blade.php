@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>合肥工业大学化学实验室安全教育与考试系统</title>
 <link href="style/index.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="http://www.phpjz.cn/js/jquery.1.4.2-min.js"></script>
+    <script src="//cdn.bootcss.com/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript" src="js/jcarousellite.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
 </head>
